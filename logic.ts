@@ -3,8 +3,8 @@ import {
   StudyMode, StudyStatus, StudySet, StudySetQuestion, 
   Question, QuestionType, Domain, Attempt, AttemptAnswer,
   DomainPerformance, TypePerformance 
-} from './types';
-import { QUESTIONS as ALL_QUESTIONS, DOMAINS } from './data/index';
+} from './types.ts';
+import { QUESTIONS as ALL_QUESTIONS, DOMAINS } from './data/index.ts';
 
 const shuffle = <T,>(array: T[]): T[] => {
   const newArray = [...array];
@@ -15,44 +15,30 @@ const shuffle = <T,>(array: T[]): T[] => {
   return newArray;
 };
 
-// Seeded shuffle for deterministic models if needed, 
-// but here we just need to ensure the logic picks specific ranges
+// Seeded selection to ensure "Model 1" is always the same "Model 1"
 export const createStudySet = (mode: StudyMode, domainId?: number, modelIndex: number = 0): { studySet: StudySet, questions: StudySetQuestion[] } => {
   const id = Math.random().toString(36).substr(2, 9);
   let selectedQuestions: Question[] = [];
 
   switch (mode) {
     case StudyMode.MOCK_EXAM: {
-      // Logic for 4 models with 20% overlap
-      // We process each domain individually to maintain weightage
       DOMAINS.forEach(domain => {
         const domainPool = ALL_QUESTIONS.filter(q => q.domain_id === domain.id);
-        
-        // Deterministic shuffle based on domain id to keep pools stable for indexing
-        // In a real app we might pre-generate these sets
         const sortedPool = [...domainPool].sort((a, b) => a.id.localeCompare(b.id));
         
-        const limit = domain.question_limit; // e.g., 12 for Domain 1
-        const overlapCount = Math.floor(limit * 0.2); // 20% of limit
-        
-        // Calculate start index for this model
-        // Model 0: 0 to limit
-        // Model 1: (limit - overlap) to (2*limit - overlap)
-        // This ensures Model N and Model N+1 share 'overlapCount' questions
+        const limit = domain.question_limit;
+        const overlapCount = Math.floor(limit * 0.2); 
         const startIdx = Math.max(0, modelIndex * (limit - overlapCount));
         
-        // Handle wraparound if the pool is smaller than needed for 4 models
-        // But with 320 questions, pools are usually large enough
         let selected = sortedPool.slice(startIdx, startIdx + limit);
-        
-        // If we ran out of questions in the pool, loop back
         if (selected.length < limit) {
           const remaining = limit - selected.length;
-          selected.push(...sortedPool.slice(0, remaining));
+          selected.push(...sortedPool.slice(0, Math.min(remaining, sortedPool.length)));
         }
         
         selectedQuestions.push(...selected);
       });
+      // We shuffle the final 60 to randomize order but content is stable per modelIndex
       selectedQuestions = shuffle(selectedQuestions);
       break;
     }
