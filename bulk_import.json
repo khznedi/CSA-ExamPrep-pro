@@ -1,0 +1,308 @@
+
+[
+  {
+    "question": {
+      "id": "Q-UI-001",
+      "domain_id": 1,
+      "type": "MCQ",
+      "text": "Which interface element allows quick access to frequently used modules?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Favorites", "is_correct": true },
+      { "id": "B", "text": "Breadcrumbs", "is_correct": false },
+      { "id": "C", "text": "Tags", "is_correct": false },
+      { "id": "D", "text": "History", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-UI-002",
+      "domain_id": 1,
+      "type": "MCQ",
+      "text": "What are the three main components of a filter?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Field, Operator, Value", "is_correct": true },
+      { "id": "B", "text": "Table, Field, Logic", "is_correct": false },
+      { "id": "C", "text": "Query, Sort, View", "is_correct": false },
+      { "id": "D", "text": "Column, Row, Condition", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-UI-003",
+      "domain_id": 1,
+      "type": "MULTI_SELECT",
+      "text": "Which of the following are valid ways to search for information in ServiceNow? (Select 2)",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Global Search", "is_correct": true },
+      { "id": "B", "text": "Filter Navigator", "is_correct": true },
+      { "id": "C", "text": "Database Ping", "is_correct": false },
+      { "id": "D", "text": "System Log Scanner", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-COL-001",
+      "domain_id": 2,
+      "type": "MCQ",
+      "text": "Which user record attribute determines the language of the user interface for a specific user?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Language field on the User record", "is_correct": true },
+      { "id": "B", "text": "System Localization property", "is_correct": false },
+      { "id": "C", "text": "Browser header setting", "is_correct": false },
+      { "id": "D", "text": "UI Page preference", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-COL-002",
+      "domain_id": 2,
+      "type": "MULTI_SELECT",
+      "text": "Which of the following are true regarding Groups in ServiceNow? (Select 2)",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Groups are a collection of users", "is_correct": true },
+      { "id": "B", "text": "Groups can be used to assign roles", "is_correct": true },
+      { "id": "C", "text": "A user can only belong to one group", "is_correct": false },
+      { "id": "D", "text": "Groups cannot be used for approvals", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DB-001",
+      "domain_id": 3,
+      "type": "MCQ",
+      "text": "Which statement describes coalesce fields during an import?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "If a match is found, the existing record is updated", "is_correct": true },
+      { "id": "B", "text": "A new record is always created", "is_correct": false },
+      { "id": "C", "text": "Matching records are deleted", "is_correct": false },
+      { "id": "D", "text": "The import fails if no match is found", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DB-002",
+      "domain_id": 3,
+      "type": "MCQ",
+      "text": "Which table is the parent for Incident, Change, and Problem tables?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Task [task]", "is_correct": true },
+      { "id": "B", "text": "Ticket [ticket]", "is_correct": false },
+      { "id": "C", "text": "Request [request]", "is_correct": false },
+      { "id": "D", "text": "Work [work]", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DB-003",
+      "domain_id": 3,
+      "type": "MCQ",
+      "text": "What is the primary purpose of the CMDB?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "To track IT assets and their relationships", "is_correct": true },
+      { "id": "B", "text": "To store user passwords securely", "is_correct": false },
+      { "id": "C", "text": "To manage the instance upgrade schedule", "is_correct": false },
+      { "id": "D", "text": "To host the ServiceNow documentation", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DB-004",
+      "domain_id": 3,
+      "type": "MULTI_SELECT",
+      "text": "Which of the following are valid Transform Map types? (Select 2)",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Auto Map Matching Fields", "is_correct": true },
+      { "id": "B", "text": "Mapping Assist", "is_correct": true },
+      { "id": "C", "text": "Scripted Database Sync", "is_correct": false },
+      { "id": "D", "text": "Manual XML Injection", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DB-005",
+      "domain_id": 3,
+      "type": "MCQ",
+      "text": "A dictionary override is used to do what?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Define a different value for a field on an extended table", "is_correct": true },
+      { "id": "B", "text": "Change the label of a column globally", "is_correct": false },
+      { "id": "C", "text": "Delete a field from the parent table", "is_correct": false },
+      { "id": "D", "text": "Encrypt a field in the database", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-PA-001",
+      "domain_id": 4,
+      "type": "MCQ",
+      "text": "In Flow Designer, what is used to start a flow?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Trigger", "is_correct": true },
+      { "id": "B", "text": "Action", "is_correct": false },
+      { "id": "C", "text": "Spoke", "is_correct": false },
+      { "id": "D", "text": "Logic Block", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-PA-002",
+      "domain_id": 4,
+      "type": "MCQ",
+      "text": "Which Service Catalog component contains all information needed to fulfill a specific request?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Catalog Item", "is_correct": true },
+      { "id": "B", "text": "Catalog Variable", "is_correct": false },
+      { "id": "C", "text": "Record Producer", "is_correct": false },
+      { "id": "D", "text": "Order Guide", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-PA-003",
+      "domain_id": 4,
+      "type": "MULTI_SELECT",
+      "text": "Which of the following can be used to control form behavior without scripting? (Select 2)",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "UI Policies", "is_correct": true },
+      { "id": "B", "text": "Data Policies", "is_correct": true },
+      { "id": "C", "text": "Client Scripts", "is_correct": false },
+      { "id": "D", "text": "Business Rules", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DEV-001",
+      "domain_id": 5,
+      "type": "MCQ",
+      "text": "What is captured in an Update Set by default?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Customization and configuration changes", "is_correct": true },
+      { "id": "B", "text": "User data records like Incidents", "is_correct": false },
+      { "id": "C", "text": "Scheduled Job logs", "is_correct": false },
+      { "id": "D", "text": "Email notifications sent to users", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "Q-DEV-002",
+      "domain_id": 5,
+      "type": "MULTI_SELECT",
+      "text": "Which of the following are NOT captured in an Update Set? (Select 2)",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "User Records", "is_correct": true },
+      { "id": "B", "text": "Scheduled Jobs (Data)", "is_correct": true },
+      { "id": "C", "text": "Business Rules", "is_correct": false },
+      { "id": "D", "text": "Client Scripts", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "S-PA-001",
+      "domain_id": 4,
+      "type": "SCENARIO",
+      "scenario_text": "An organization wants to implement an automated approval process for new laptops. If the laptop price is under $1000, it should be auto-approved. If it is over $1000, it requires manager approval.",
+      "question_text": "What is the most efficient way to implement this logic in ServiceNow?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Create a Flow in Flow Designer with an 'If' condition check", "is_correct": true },
+      { "id": "B", "text": "Write a Client Script to show a pop-up to the manager", "is_correct": false },
+      { "id": "C", "text": "Use a UI Policy to hide the submit button for expensive laptops", "is_correct": false },
+      { "id": "D", "text": "Configure a Data Policy to reject records over $1000", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "S-DB-001",
+      "domain_id": 3,
+      "type": "SCENARIO",
+      "scenario_text": "A developer needs to import 5000 server records from an external CSV. The spreadsheet includes a 'MAC Address' column which is unique for every server. Some of these servers might already exist in the CMDB.",
+      "question_text": "How can the developer ensure that existing server records are updated rather than duplicated?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Mark the MAC Address field as Coalesce: true in the Transform Map", "is_correct": true },
+      { "id": "B", "text": "Manually delete all servers before importing the new list", "is_correct": false },
+      { "id": "C", "text": "Use a Business Rule to check for duplicates before insert", "is_correct": false },
+      { "id": "D", "text": "Set the Import Set to 'Overwrite Mode'", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "S-UI-001",
+      "domain_id": 1,
+      "type": "SCENARIO",
+      "scenario_text": "The marketing department wants their own customized version of the Service Portal that matches their brand colors and has a unique URL suffix.",
+      "question_text": "What should the administrator configure to achieve this?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "Create a new Service Portal record and associate it with a custom Theme", "is_correct": true },
+      { "id": "B", "text": "Modify the global CSS file for the entire instance", "is_correct": false },
+      { "id": "C", "text": "Change the system branding property 'glide.ui.banner.color'", "is_correct": false },
+      { "id": "D", "text": "Use a UI Policy to hide the standard portal for marketing users", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "S-DEV-001",
+      "domain_id": 5,
+      "type": "SCENARIO",
+      "scenario_text": "A developer has made changes to several Business Rules and UI Actions in the Development instance. They have also created 10 test user accounts. They now need to move the logic changes to the Production instance using an Update Set.",
+      "question_text": "After moving the Update Set, what will be present in the Production instance?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "The Business Rules and UI Actions, but not the test user accounts", "is_correct": true },
+      { "id": "B", "text": "Both the logic changes and the test user accounts", "is_correct": false },
+      { "id": "C", "text": "Only the test user accounts", "is_correct": false },
+      { "id": "D", "text": "Nothing, as Update Sets cannot capture Business Rules", "is_correct": false }
+    ]
+  },
+  {
+    "question": {
+      "id": "S-COL-001",
+      "domain_id": 2,
+      "type": "SCENARIO",
+      "scenario_text": "An organization wants to restrict access to a specific Knowledge Base so that only the HR department can read and contribute to it.",
+      "question_text": "Which feature should be used to enforce this visibility?",
+      "is_active": true
+    },
+    "choices": [
+      { "id": "A", "text": "User Criteria", "is_correct": true },
+      { "id": "B", "text": "ACLs on the Knowledge table", "is_correct": false },
+      { "id": "C", "text": "UI Policies on the Knowledge form", "is_correct": false },
+      { "id": "D", "text": "Group memberships alone", "is_correct": false }
+    ]
+  }
+]
