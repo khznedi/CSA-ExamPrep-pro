@@ -12,9 +12,8 @@ import QuizScreen from './components/QuizScreen.tsx';
 import ResultScreen from './components/ResultScreen.tsx';
 import Dashboard from './components/Dashboard.tsx';
 import FlashcardScreen from './components/FlashcardScreen.tsx';
-import StudyGuideScreen from './components/StudyGuideScreen.tsx';
 
-type Screen = 'DASHBOARD' | 'MODE_SELECT' | 'DOMAIN_SELECT' | 'QUIZ' | 'RESULTS' | 'FLASHCARDS' | 'STUDY_GUIDE';
+type Screen = 'DASHBOARD' | 'MODE_SELECT' | 'DOMAIN_SELECT' | 'QUIZ' | 'RESULTS' | 'FLASHCARDS';
 
 const SESSION_KEY = 'csa_prep_rounds_session';
 
@@ -143,7 +142,7 @@ const App: React.FC = () => {
 
       {/* Content Wrapper */}
       <main className="flex-grow flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
-        {currentScreen === 'DASHBOARD' && <Dashboard onStart={() => setCurrentScreen('MODE_SELECT')} onOpenGuide={() => setCurrentScreen('STUDY_GUIDE')} lang={lang} />}
+        {currentScreen === 'DASHBOARD' && <Dashboard onStart={() => setCurrentScreen('MODE_SELECT')} lang={lang} />}
         {currentScreen === 'MODE_SELECT' && <ModeSelection onSelect={handleStartStudy} onResume={() => initiateStudySet(StudyMode.ALL_QUESTIONS_ROUNDS, undefined, true)} onBack={goToDashboard} lang={lang} hasSavedRounds={hasSavedSession} />}
         {currentScreen === 'DOMAIN_SELECT' && <DomainSelection onSelect={(id) => initiateStudySet(selectedMode!, id)} onBack={() => setCurrentScreen('MODE_SELECT')} lang={lang} />}
         {currentScreen === 'QUIZ' && currentStudySet && (
@@ -159,7 +158,6 @@ const App: React.FC = () => {
         )}
         {currentScreen === 'RESULTS' && results && currentStudySet && <ResultScreen results={results} studySet={currentStudySet} questions={currentQuestions} onRestart={() => setCurrentScreen('MODE_SELECT')} onReview={handleReview} lang={lang} />}
         {currentScreen === 'FLASHCARDS' && <FlashcardScreen flashcards={currentFlashcards} domainName={selectedDomain?.name || ""} onBack={() => setCurrentScreen('DOMAIN_SELECT')} lang={lang} />}
-        {currentScreen === 'STUDY_GUIDE' && <StudyGuideScreen onBack={goToDashboard} lang={lang} />}
       </main>
 
       {/* Universal Footer */}
