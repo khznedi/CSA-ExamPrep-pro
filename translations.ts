@@ -1,132 +1,126 @@
 
 export const translations = {
   en: {
-    title: "CSA ExamPrep Pro",
+    title: "CSA Prep Pro",
     dashboard: "Dashboard",
-    startStudying: "Start Studying",
-    masterExam: "Master the ServiceNow CSA Exam",
-    heroDesc: "The ultimate preparation suite for your certification success. Precise, professional, and updated.",
-    mockExams: "Full Mock Exams",
+    startStudying: "Start Training",
+    masterExam: "Master ServiceNow CSA",
+    heroDesc: "Professional preparation suite following the 2024 Exam Blueprint. Optimized for high-retention learning.",
+    mockExams: "Mock Exams",
     mockDesc: "60 questions. No feedback. 60% to pass.",
     domainDrills: "Domain Drills",
-    domainDesc: "Focus on specific knowledge areas.",
-    scenarioBased: "Scenario Based",
-    scenarioDesc: "Real-world logic challenges.",
-    masterCheat: "Master Cheat CSA",
-    cheatDesc: "The essential quick-reference guide for all domains.",
-    footerNote: "Professional Study Utility",
-    selectMode: "Select Study Mode",
+    domainDesc: "Target specific exam areas.",
+    footerNote: "Certified Study Utility",
+    selectMode: "Select Mode",
     back: "Back",
-    resume: "Resume Session",
-    restart: "Start New Session",
-    existingProgress: "Existing progress found for this mode. Would you like to continue or start fresh?",
-    selectMockModel: "Select Mock Exam Model",
-    mockModelName: "Mock Exam Model {n}",
-    mockModelDesc: "60 unique questions with max 20% overlap between models.",
+    resume: "Resume",
+    restart: "Restart",
+    existingProgress: "Saved progress found. Continue where you left off?",
+    selectMockModel: "Select Exam Model",
+    mockModelName: "Exam Model {n}",
+    mockModelDesc: "60 questions following official weightage.",
     modes: {
       ALL_QUESTIONS_ROUNDS: {
-        name: "All Questions (Rounds)",
-        desc: "Cycle through the full question bank (320 questions) in rounds of 10. Immediate feedback and explanations provided."
+        name: "Full Bank (Rounds)",
+        desc: "Study the entire 320+ question bank in sets of 10 with instant feedback."
       },
       MOCK_EXAM: {
-        name: "Mock Exam Models",
-        desc: "4 professional exam simulations. 60 questions each. Distribution follows official CSA weightage."
+        name: "Mock Exams",
+        desc: "Simulation of the real exam environment. 90 minutes. 60 questions."
       },
       PRACTICE_BY_DOMAIN: {
-        name: "Practice by Domain",
-        desc: "Drill down into specific certification areas. Helpful for targeting weak spots with immediate feedback."
+        name: "Domain Drills",
+        desc: "Deep dive into specific certification domains."
       },
       DIRECT_ANSWERS: {
-        name: "Flashcards (Direct Answers)",
-        desc: "Interactive flip-cards for rapid memorization. Focused on key facts and terms organized by domain."
+        name: "Flashcards",
+        desc: "Rapid-fire study for key terms and platform facts."
       }
     },
+    domains: {
+      1: "UI/Navigation/Configuration (Domain A)",
+      2: "Collaboration (Domain B)",
+      3: "Database Administration (Domain C)",
+      4: "Service Automation (Domain D)",
+      5: "Application Development (Domain E)"
+    },
+    aiTutor: "AI Tutor",
+    askAi: "Explain with AI",
+    aiThinking: "Consulting Knowledge Base...",
+    aiError: "Tutor unavailable. Please check connection.",
     selectDomain: "Select Domain",
-    domainSelectDesc: "Choose a specific knowledge area to focus on.",
-    practiceAll: "Practice All Domains",
-    questionOf: "Question {current} of {total}",
-    roundOf: "Round {current} of {total}",
-    pauseExit: "Pause & Exit",
+    domainSelectDesc: "Target your practice by specific domain.",
+    practiceAll: "All Domains",
     checkAnswer: "Check Answer",
-    submit: "Submit",
     nextQuestion: "Next Question",
     finishSession: "Finish Session",
-    correct: "Correct",
-    incorrect: "Incorrect",
-    finalResult: "Final Result",
     passed: "PASSED",
     failed: "FAILED",
-    passMsg: "Excellent work! You've met the passing threshold of 60%.",
-    failMsg: "You didn't reach the 60% threshold. Keep practicing!",
     domainPerformance: "Domain Performance",
-    breakdownByType: "Breakdown by Type",
-    takeAnother: "Take Another Practice",
-    returnHome: "Return to Home",
-    weight: "Weight"
+    weight: "Weight",
+    reviewExam: "Review Exam Results",
+    studyGuide: "Study Guide"
   },
   ar: {
-    title: "محترف التحضير لاختبار CSA",
-    dashboard: "لوحة التحكم",
-    startStudying: "ابدأ المذاكرة والتدريب",
+    title: "محترف CSA",
+    dashboard: "الرئيسية",
+    startStudying: "بدأ التدريب",
     masterExam: "أتقن اختبار ServiceNow CSA",
-    heroDesc: "المجموعة الكاملة للتحضير والنجاح في الشهادة. دقة، احترافية، ومحتوى محدث.",
+    heroDesc: "مجموعة أدوات احترافية تتبع مخطط اختبار 2024. مصممة لتحقيق أقصى درجات الاستيعاب.",
     mockExams: "اختبارات تجريبية",
     mockDesc: "60 سؤالاً. بدون إجابات فورية. 60% للنجاح.",
-    domainDrills: "تدريبات المجالات",
-    domainDesc: "تركيز على مجالات معرفية محددة.",
-    scenarioBased: "سيناريوهات تطبيقية",
-    scenarioDesc: "تحديات منطقية واقعية.",
-    masterCheat: "ملخص CSA الشامل",
-    cheatDesc: "دليل المراجعة السريعة لكافة مجالات الاختبار.",
-    footerNote: "أداة دراسية احترافية",
-    selectMode: "اختر نمط الدراسة",
+    domainDrills: "تدريبات مكثفة",
+    domainDesc: "استهدف مجالات محددة من الاختبار.",
+    footerNote: "أداة دراسية معتمدة",
+    selectMode: "اختر النمط",
     back: "رجوع",
-    resume: "استئناف الجلسة",
-    restart: "بدأ جلسة جديدة",
-    existingProgress: "يوجد تقدم محفوظ لهذا النمط. هل ترغب في الاستمرار من حيث توقفت أم البدء من جديد؟",
-    selectMockModel: "اختر مودل الاختبار التجريبي",
-    mockModelName: "مودل الاختبار التجريبي {n}",
-    mockModelDesc: "60 سؤالاً متخصصاً مع تكرار لا يتجاوز 20% بين النماذج.",
+    resume: "استئناف",
+    restart: "بدأ جديد",
+    existingProgress: "يوجد تقدم محفوظ. هل ترغب في الاستمرار؟",
+    selectMockModel: "اختر نموذج الاختبار",
+    mockModelName: "نموذج {n}",
+    mockModelDesc: "60 سؤالاً تتبع الأوزان الرسمية.",
     modes: {
       ALL_QUESTIONS_ROUNDS: {
-        name: "جميع الأسئلة (جولات)",
-        desc: "مر عبر بنك الأسئلة الكامل (320 سؤالاً) في جولات مكونة من 10 أسئلة. يتضمن تصحيحاً فورياً وشروحات مفصلة."
+        name: "البنك الكامل (جولات)",
+        desc: "ذاكر كامل بنك الأسئلة (320+) في مجموعات من 10 أسئلة."
       },
       MOCK_EXAM: {
-        name: "نماذج الاختبار التجريبي",
-        desc: "4 نماذج اختبار احترافية. 60 سؤالاً لكل نموذج. التوزيع يتبع أوزان CSA الرسمية."
+        name: "نماذج الاختبار",
+        desc: "محاكاة لبيئة الاختبار الحقيقية. 90 دقيقة. 60 سؤالاً."
       },
       PRACTICE_BY_DOMAIN: {
-        name: "المذاكرة حسب الدومين",
-        desc: "تعمق في مجالات محددة من الشهادة. مفيد لاستهداف نقاط الضعف مع تصحيح فوري."
+        name: "المذاكرة حسب المجال",
+        desc: "تركيز عميق على مجالات محددة من الشهادة."
       },
       DIRECT_ANSWERS: {
-        name: "بطاقات تعليمية (إجابات مباشرة)",
-        desc: "بطاقات تفاعلية للحفظ السريع. تركز على الحقائق والمصطلحات الأساسية مقسمة حسب المجال."
+        name: "بطاقات تعليمية",
+        desc: "مذاكرة سريعة للمصطلحات والحقائق الأساسية."
       }
     },
+    domains: {
+      1: "الواجهة والتكوين (المجال A)",
+      2: "التعاون (المجال B)",
+      3: "إدارة قواعد البيانات (المجال C)",
+      4: "أتمتة الخدمات (المجال D)",
+      5: "تطوير التطبيقات (المجال E)"
+    },
+    aiTutor: "المعلم الذكي",
+    askAi: "اشرح بالذكاء الاصطناعي",
+    aiThinking: "جاري تحليل السؤال...",
+    aiError: "المعلم غير متاح حالياً. تأكد من الاتصال.",
     selectDomain: "اختر المجال",
-    domainSelectDesc: "اختر مجالاً معرفياً محدداً للتركيز عليه.",
-    practiceAll: "ممارسة جميع المجالات",
-    questionOf: "سؤال {current} من {total}",
-    roundOf: "الجولة {current} من {total}",
-    pauseExit: "إيقاف مؤقت وخروج",
-    checkAnswer: "تحقق من الإجابة",
-    submit: "إرسال",
-    nextQuestion: "السؤال التالي",
-    finishSession: "إنهاء الجلسة",
-    correct: "صحيح",
-    incorrect: "خاطئ",
-    finalResult: "النتيجة النهائية",
+    domainSelectDesc: "استهدف مذاكرتك حسب مجال محدد.",
+    practiceAll: "جميع المجالات",
+    checkAnswer: "تحقق",
+    nextQuestion: "التالي",
+    finishSession: "إنهاء",
     passed: "ناجح",
     failed: "راسب",
-    passMsg: "عمل ممتاز! لقد اجتزت حد النجاح 60%.",
-    failMsg: "لم تصل إلى حد النجاح 60%. استمر في التدريب!",
     domainPerformance: "أداء المجالات",
-    breakdownByType: "تفصيل حسب النوع",
-    takeAnother: "خذ تدريباً آخر",
-    returnHome: "العودة للرئيسية",
-    weight: "الوزن"
+    weight: "الوزن",
+    reviewExam: "مراجعة الإجابات",
+    studyGuide: "دليل الدراسة"
   }
 };
 

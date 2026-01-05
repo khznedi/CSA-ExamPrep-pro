@@ -5,14 +5,13 @@ import { translations, Language } from '../translations';
 
 interface ModeSelectionProps {
   onSelect: (mode: StudyMode, domainId?: number, modelIndex?: number) => void;
-  onCheatSheet: () => void;
   onResume: () => void;
   onBack: () => void;
   lang: Language;
   hasSavedRounds: boolean;
 }
 
-const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelect, onCheatSheet, onResume, onBack, lang, hasSavedRounds }) => {
+const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelect, onResume, onBack, lang, hasSavedRounds }) => {
   const t = translations[lang];
   const [showResumeDialog, setShowResumeDialog] = useState(false);
   const [showMockModels, setShowMockModels] = useState(false);
@@ -99,14 +98,6 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelect, onCheatSheet, o
       description: t.modes.DIRECT_ANSWERS.desc,
       icon: '💡',
       onClick: () => onSelect(StudyMode.DIRECT_ANSWERS)
-    },
-    {
-      id: 'CHEAT_SHEET',
-      name: t.masterCheat,
-      description: t.cheatDesc,
-      icon: '📖',
-      onClick: onCheatSheet,
-      isSpecial: true
     }
   ];
 
@@ -127,7 +118,7 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelect, onCheatSheet, o
           <button
             key={mode.id}
             onClick={mode.onClick}
-            className={`group p-6 border rounded-2xl text-start transition-all shadow-sm hover:shadow-md active:scale-[0.99] relative overflow-hidden ${mode.id === 'CHEAT_SHEET' ? 'bg-emerald-50 border-emerald-200 hover:border-emerald-600' : 'bg-white border-slate-200 hover:border-indigo-600'}`}
+            className={`group p-6 border rounded-2xl text-start transition-all shadow-sm hover:shadow-md active:scale-[0.99] relative overflow-hidden bg-white border-slate-200 hover:border-indigo-600`}
           >
             {mode.id === 'ALL_QUESTIONS_ROUNDS' && hasSavedRounds && (
               <div className="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-bl-lg uppercase tracking-tighter">
@@ -135,12 +126,12 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelect, onCheatSheet, o
               </div>
             )}
             <div className="flex items-start gap-5">
-              <div className={`text-4xl p-5 rounded-2xl transition-colors shrink-0 ${mode.id === 'CHEAT_SHEET' ? 'bg-emerald-100 group-hover:bg-emerald-200' : 'bg-slate-50 group-hover:bg-indigo-50'}`}>
+              <div className={`text-4xl p-5 rounded-2xl transition-colors shrink-0 bg-slate-50 group-hover:bg-indigo-50`}>
                 {mode.icon}
               </div>
               <div className="space-y-2">
-                <h3 className={`text-xl font-bold transition-colors ${mode.id === 'CHEAT_SHEET' ? 'text-emerald-900 group-hover:text-emerald-700' : 'text-slate-800 group-hover:text-indigo-600'}`}>{mode.name}</h3>
-                <p className={`text-sm leading-relaxed max-w-2xl ${mode.id === 'CHEAT_SHEET' ? 'text-emerald-700' : 'text-slate-500'}`}>{mode.description}</p>
+                <h3 className={`text-xl font-bold transition-colors text-slate-800 group-hover:text-indigo-600`}>{mode.name}</h3>
+                <p className={`text-sm leading-relaxed max-w-2xl text-slate-500`}>{mode.description}</p>
               </div>
             </div>
           </button>

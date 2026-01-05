@@ -1,867 +1,1699 @@
-
 import { Question, QuestionType } from '../types';
 
 export const DOMAIN1_QUESTIONS: Question[] = [
+  // --- PART 1 (Questions 1 - 15) ---
   {
-    id: "D1-008",
+    id: "p1-q5",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "Reports can be created from which different places in the platform? (Choose two.)",
+    explanation: "Reports can be generated from the column heading context menu in a list or via the View / Run module.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "List column heading", is_correct: true },
+      { id: "b", text: "Metrics module", is_correct: false },
+      { id: "c", text: "Statistics module", is_correct: false },
+      { id: "d", text: "View / Run module", is_correct: true }
+    ]
+  },
+  {
+    id: "p1-q8",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Which term refers to application menus and modules which you may want to access quickly and often?",
-    explanation: "Favorites (star icon) allow users to pin frequently used modules and records for quick access from the sidebar or banner.",
+    explanation: "Favorites are intended for quick access to frequently used menus or records.",
     is_active: true,
     choices: [
-      { id: "A", text: "Breadcrumb", is_correct: false },
-      { id: "B", text: "Favorite", is_correct: true },
-      { id: "C", text: "Tag", is_correct: false },
-      { id: "D", text: "Bookmark", is_correct: false }
+      { id: "a", text: "Breadcrumb", is_correct: false },
+      { id: "b", text: "Favorite", is_correct: true },
+      { id: "c", text: "Tag", is_correct: false },
+      { id: "d", text: "Bookmark", is_correct: false }
     ]
   },
   {
-    id: "D1-021",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "Which one of the following statements is true about Column Context Menus?",
-    explanation: "Right-clicking a column header opens the Column Context Menu, which provides options like sorting, grouping, configuring the list, and exporting data.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "It displays actions such as creating quick reports, configuring the list, and exporting data", is_correct: true },
-      { id: "B", text: "It displays actions related to filtering options, assigning tags, and search", is_correct: false },
-      { id: "C", text: "It displays actions related to viewing and filtering the entire list", is_correct: false },
-      { id: "D", text: "It displays actions such as view form, view related task, and add relationship", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-025",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "In what order should filter elements be specified?",
-    explanation: "ServiceNow filters follow a logical Field -> Operator -> Value sequence (e.g., [Active] [is] [true]).",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Field, Operator, then Value", is_correct: true },
-      { id: "B", text: "Field, Operator, then Condition", is_correct: false },
-      { id: "C", text: "Operator, Condition, then Value", is_correct: false },
-      { id: "D", text: "Value, Operator, then Field", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-032",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "What is a formatter?",
-    explanation: "A formatter is a form element used to display data that is not a standard field, such as the Activity Stream, Process Flow, or CI Relations.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "A formatter allows you to configure applications on your instance", is_correct: false },
-      { id: "B", text: "A formatter is a form element used to display information that is not a field in the record", is_correct: true },
-      { id: "C", text: "A formatter allows you to populate fields automatically", is_correct: false },
-      { id: "D", text: "A formatter is a set of conditions applied to a table to help find and work with data", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-033",
+    id: "p1-q10",
     domain_id: 1,
     type: QuestionType.MULTI_SELECT,
-    text: "When searching using the App Navigator search field, what can be returned? (Choose four)",
-    explanation: "The filter navigator searches for Application names, Module names, Favorites, and recently accessed History items.",
+    text: "From the User menu, which actions can a user select? (Choose three.)",
+    explanation: "The User menu allows for logging out, elevating security roles, and impersonating users.",
     is_active: true,
     choices: [
-      { id: "A", text: "Names of Applications and Modules", is_correct: true },
-      { id: "B", text: "Names of Modules", is_correct: true },
-      { id: "C", text: "Names of Applications", is_correct: true },
-      { id: "D", text: "Favorites", is_correct: true },
-      { id: "E", text: "History Records", is_correct: false },
-      { id: "F", text: "Titles of Dashboard Gauges", is_correct: false }
+      { id: "a", text: "Send Notifications", is_correct: false },
+      { id: "b", text: "Log Out ServiceNow", is_correct: true },
+      { id: "c", text: "Elevate Roles", is_correct: true },
+      { id: "d", text: "Impersonate Users", is_correct: true },
+      { id: "e", text: "Order from Service Catalog", is_correct: false },
+      { id: "f", text: "Approve Records", is_correct: false }
     ]
   },
   {
-    id: "D1-037",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "Which of the following can be customized through the Basic Configuration UI 16 module? (Choose three)",
-    explanation: "UI16 allows branding customization like the Banner Image, Browser Tab Title, and System Date/Time formats.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Banner Image", is_correct: true },
-      { id: "B", text: "Record Number Format", is_correct: false },
-      { id: "C", text: "Browser Tab Title", is_correct: true },
-      { id: "D", text: "System Date Format", is_correct: true },
-      { id: "E", text: "Form Header Size", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-038",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "What is the function of user impersonation?",
-    explanation: "Impersonation allows administrators to view the instance exactly as another user does for testing and troubleshooting permissions.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Testing and visibility", is_correct: true },
-      { id: "B", text: "Activate verbose logging", is_correct: false },
-      { id: "C", text: "View custom perspectives", is_correct: false },
-      { id: "D", text: "Unlock Application master list", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-040",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "When working on a form, what is the difference between Insert and Update operations?",
-    explanation: "Insert creates a new record and returns to the list/previous page, while Update saves changes to an existing record and returns.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Insert creates a new record and Update saves changes, both remain on the form", is_correct: false },
-      { id: "B", text: "Insert creates a new record and Update saves changes, both exit the form", is_correct: true },
-      { id: "C", text: "Insert saves changes and exits the form, Update saves changes and remains on the form", is_correct: false },
-      { id: "D", text: "Insert saves changes and remains on the form, Update saves changes and exits the form", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-010",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "From the User menu, which actions can a user select? (Choose three)",
-    explanation: "The user menu in the banner frame provides options to Log Out, Elevate Roles (if available), and Impersonate Users (for admins).",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Send Notifications", is_correct: false },
-      { id: "B", text: "Log Out ServiceNow", is_correct: true },
-      { id: "C", text: "Elevate Roles", is_correct: true },
-      { id: "D", text: "Impersonate Users", is_correct: true },
-      { id: "E", text: "Order from Service Catalog", is_correct: false },
-      { id: "F", text: "Approve Records", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-017",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "Which would NOT appear in the History section of the Application Navigator?",
-    explanation: "History tracks forms, lists, and records. UI Pages are structural components and usually don't appear in the simple navigation history.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Records", is_correct: false },
-      { id: "B", text: "UI Pages", is_correct: true },
-      { id: "C", text: "Lists", is_correct: false },
-      { id: "D", text: "Forms", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-049",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "Which of the following allows a user to edit field values in a list without opening the form?",
-    explanation: "The List Editor allows double-clicking fields directly in a list to modify data, provided permissions are met.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Data Editor", is_correct: false },
-      { id: "B", text: "Edit Menu", is_correct: false },
-      { id: "C", text: "List Editor", is_correct: true },
-      { id: "D", text: "Form Designer", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-011",
+    id: "p1-q11",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Buttons, form links, and context menu items are all examples of what type of functionality?",
-    explanation: "UI Actions are the primary way to add interactive elements like buttons and links to the user interface.",
+    explanation: "UI Actions are used to add interactive elements like buttons and links to forms and lists.",
     is_active: true,
     choices: [
-      { id: "A", text: "Business Rule", is_correct: false },
-      { id: "B", text: "UI Action", is_correct: true },
-      { id: "C", text: "Client Script", is_correct: false },
-      { id: "D", text: "UI Policy", is_correct: false }
+      { id: "a", text: "Business Rule", is_correct: false },
+      { id: "b", text: "UI Action", is_correct: true },
+      { id: "c", text: "Client Script", is_correct: false },
+      { id: "d", text: "UI Policy", is_correct: false }
     ]
   },
   {
-    id: "D1-062",
+    id: "p1-q14",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Table Access Control rules are processed in the following order:",
+    explanation: "ACLs are checked from most generic to most specific: Wildcard (*), Parent Table, then the specific Table Name.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "any table name (wildcard), parent table name, table name", is_correct: true },
+      { id: "b", text: "table name, parent table name, any table name (wildcard)", is_correct: false },
+      { id: "c", text: "parent table name, table name, any table name (wildcard)", is_correct: false },
+      { id: "d", text: "any table name (wildcard), table name, parent table name", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q17",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which would NOT appear in the History section of the Application Navigator?",
+    explanation: "History tracks records, lists, and forms, but does not track UI Pages.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Records", is_correct: false },
+      { id: "b", text: "UI Pages", is_correct: true },
+      { id: "c", text: "Lists", is_correct: false },
+      { id: "d", text: "Forms", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q18",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which one of the following statements is a recommendation from ServiceNow about Update Sets?",
+    explanation: "Avoid using the Default update set to move customizations between instances.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Avoid using the Default Update set as an Update Set for moving customizations from instance to instance", is_correct: true },
+      { id: "b", text: "Before moving customizations from instance to instance with Update Sets, ensure that both instances are different versions", is_correct: false },
+      { id: "c", text: "Use the Baseline Update Set to store the contents of items after they are changed the first time", is_correct: false },
+      { id: "d", text: "Once an Update Set is closed as 'Complete', change it back to 'In Progress' until it is applied to another instance", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q21",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which one of the following statements is true about Column Context Menus?",
+    explanation: "The Column Context Menu allows creating reports, configuring lists, and exporting data.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "It displays actions such as creating quick reports, configuring the list, and exporting data", is_correct: true },
+      { id: "b", text: "It displays actions related to filtering options, assigning tags, and search", is_correct: false },
+      { id: "c", text: "It displays actions related to viewing and filtering the entire list", is_correct: false },
+      { id: "d", text: "It displays actions such as view form, view related task, and add relationship", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q25",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "In what order should filter elements be specified?",
+    explanation: "ServiceNow filters follow the pattern: Field, Operator, then Value.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Field, Operator, then Value", is_correct: true },
+      { id: "b", text: "Field, Operator, then Condition", is_correct: false },
+      { id: "c", text: "Operator, Condition, then Value", is_correct: false },
+      { id: "d", text: "Value, Operator, then Field", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q32",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What is a formatter? Select one of the following.",
+    explanation: "Formatters are elements used to display data that is not stored as a specific field in the record.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "A formatter allows you to configure applications on your instance", is_correct: false },
+      { id: "b", text: "A formatter is a form element used to display information that is not a field in the record", is_correct: true },
+      { id: "c", text: "A formatter allows you to populate fields automatically", is_correct: false },
+      { id: "d", text: "A formatter is a set of conditions applied to a table to help find and work with data", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q33",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "When searching using the App Navigator search field, what can be returned? (Choose four.)",
+    explanation: "The Navigator filter can return Applications, Modules, Favorites, and History.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Names of Applications and Modules", is_correct: true },
+      { id: "b", text: "Names of Modules", is_correct: true },
+      { id: "c", text: "Names of Applications", is_correct: true },
+      { id: "d", text: "Favorites", is_correct: true },
+      { id: "e", text: "History Records", is_correct: false },
+      { id: "f", text: "Titles of Dashboard Gauges", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q37",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "Which of the following can be customized through the Basic Configuration UI 16 module? (Choose three.)",
+    explanation: "Basic Configuration UI 16 manages the banner image, tab title, and system date formats.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Banner Image", is_correct: true },
+      { id: "b", text: "Record Number Format", is_correct: false },
+      { id: "c", text: "Browser Tab Title", is_correct: true },
+      { id: "d", text: "System Date Format", is_correct: true },
+      { id: "e", text: "Form Header Size", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q38",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What is the function of user impersonation?",
+    explanation: "Impersonation is used for testing and visibility to see what a specific user can access.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Testing and visibility", is_correct: true },
+      { id: "b", text: "Activate verbose logging", is_correct: false },
+      { id: "c", text: "View custom perspectives", is_correct: false },
+      { id: "d", text: "Unlock Application master list", is_correct: false }
+    ]
+  },
+  {
+    id: "p1-q40",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "When working on a form, what is the difference between Insert and Update operations?",
+    explanation: "Insert creates a new record and remains on the form, while Update saves changes and exits.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Insert creates a new record and Update saves changes, both remain on the form", is_correct: false },
+      { id: "b", text: "Insert creates a new record and Update saves changes, both exit the form", is_correct: false },
+      { id: "c", text: "Insert saves changes and exits the form, Update saves changes and remains on the form", is_correct: false },
+      { id: "d", text: "Insert saves changes and remains on the form, Update saves changes and exits the form", is_correct: true }
+    ]
+  },
+  {
+    id: "p1-q49",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which of the following allows a user to edit field values in a list without opening the form?",
+    explanation: "The List Editor provides inline editing capabilities for fields in a list view.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Data Editor", is_correct: false },
+      { id: "b", text: "Edit Menu", is_correct: false },
+      { id: "c", text: "List Editor", is_correct: true },
+      { id: "d", text: "Form Designer", is_correct: false }
+    ]
+  },
+
+  // --- PART 2 (Questions 16 - 30) ---
+  {
+    id: "p2-q54",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Where can Admins check which release is running on an ServiceNow instance?",
+    explanation: "The System.upgraded table tracks the release history of the instance.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Memory Stats module", is_correct: false },
+      { id: "b", text: "Stats module", is_correct: false },
+      { id: "c", text: "System.upgraded table", is_correct: true },
+      { id: "d", text: "Transactions log", is_correct: false }
+    ]
+  },
+  {
+    id: "p2-q62",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Which section of the ServiceNow UI allows you to perform a global search?",
-    explanation: "The global search (magnifying glass) is located in the Banner Frame at the top of the screen.",
+    explanation: "Global Search is located in the banner frame at the top of the interface.",
     is_active: true,
     choices: [
-      { id: "A", text: "Application Navigator", is_correct: false },
-      { id: "B", text: "Banner frame", is_correct: true },
-      { id: "C", text: "List pane", is_correct: false },
-      { id: "D", text: "Content frame", is_correct: false }
+      { id: "a", text: "Application Navigator", is_correct: false },
+      { id: "b", text: "Banner frame", is_correct: true },
+      { id: "c", text: "List pane", is_correct: false },
+      { id: "d", text: "Content frame", is_correct: false }
     ]
   },
   {
-    id: "D1-063",
+    id: "p2-q63",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "How do you make a list filter available to everyone?",
-    explanation: "To share a filter globally, you must name it, set visibility to 'Everyone', and save it.",
+    explanation: "To share a filter, you must give it a name, set visibility, and save it.",
     is_active: true,
     choices: [
-      { id: "A", text: "Make active, assign a name, and save", is_correct: false },
-      { id: "B", text: "Assign a group, set visibility, and save", is_correct: false },
-      { id: "C", text: "Assign a name, set visibility, and save", is_correct: false },
-      { id: "D", text: "Make active, set visibility, and save", is_correct: true }
+      { id: "a", text: "Make active, assign a name, and save", is_correct: false },
+      { id: "b", text: "Assign a group, set visibility, and save", is_correct: false },
+      { id: "c", text: "Assign a name, set visibility, and save", is_correct: true },
+      { id: "d", text: "Make active, set visibility, and save", is_correct: false }
     ]
   },
   {
-    id: "D1-064",
+    id: "p2-q64",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "What would NOT appear in the Application Navigator if 'service' is typed into the filter field?",
-    explanation: "The filter navigator searches for exact string matches in module and application titles. 'Incident > Assigned to me' does not contain 'service'.",
+    text: "What would NOT appear in the Application Navigator if service is typed into the filter field?",
+    explanation: "The filter navigator shows matches that contain the string. 'Incident > Assigned to me' does not contain the word 'service'.",
     is_active: true,
     choices: [
-      { id: "A", text: "Configuration > Business Services", is_correct: false },
-      { id: "B", text: "Self-Service > Knowledge", is_correct: false },
-      { id: "C", text: "Service Portal > Widgets", is_correct: false },
-      { id: "D", text: "Incident > Assigned to me", is_correct: true }
+      { id: "a", text: "Configuration > Business Services", is_correct: false },
+      { id: "b", text: "Self-Service > Knowledge", is_correct: false },
+      { id: "c", text: "Service Portal > Widgets", is_correct: false },
+      { id: "d", text: "Incident > Assigned to me", is_correct: true }
     ]
   },
   {
-    id: "D1-065",
+    id: "p2-q65",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Which of the following is used to categorize, flag, and locate records?",
-    explanation: "Tags allow users to categorize records manually for easy retrieval later across different tables.",
+    explanation: "Tags allow users to categorize records for quick retrieval.",
     is_active: true,
     choices: [
-      { id: "A", text: "Search", is_correct: false },
-      { id: "B", text: "Favorites", is_correct: false },
-      { id: "C", text: "Tags", is_correct: true },
-      { id: "D", text: "Bookmarks", is_correct: false }
+      { id: "a", text: "Search", is_correct: false },
+      { id: "b", text: "Favorites", is_correct: false },
+      { id: "c", text: "Tags", is_correct: true },
+      { id: "d", text: "Bookmarks", is_correct: false }
     ]
   },
   {
-    id: "D1-066",
+    id: "p2-q66",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Which tool should be used to populate commonly used fields in a form?",
-    explanation: "Templates allow admins and users to pre-fill fields on a record with one click, improving speed and data consistency.",
+    explanation: "Templates are designed to auto-populate fields with predefined values.",
     is_active: true,
     choices: [
-      { id: "A", text: "Template", is_correct: true },
-      { id: "B", text: "Reference Qualifier", is_correct: false },
-      { id: "C", text: "Formatter", is_correct: false },
-      { id: "D", text: "Assignment Rule", is_correct: false }
+      { id: "a", text: "Template", is_correct: true },
+      { id: "b", text: "Reference Qualifier", is_correct: false },
+      { id: "c", text: "Formatter", is_correct: false },
+      { id: "d", text: "Assignment Rule", is_correct: false }
     ]
   },
   {
-    id: "D1-098",
+    id: "p2-q98",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "What icon do you use to change the label on a Favorite?",
-    explanation: "The pencil icon next to a favorite allows you to edit its name, icon, and color.",
+    explanation: "The Pencil icon in the Favorites tab allows for editing the favorite's label and appearance.",
     is_active: true,
     choices: [
-      { id: "A", text: "Clock", is_correct: false },
-      { id: "B", text: "Hamburger", is_correct: false },
-      { id: "C", text: "Pencil", is_correct: true },
-      { id: "D", text: "Three dots", is_correct: false }
+      { id: "a", text: "Clock", is_correct: false },
+      { id: "b", text: "Hamburger", is_correct: false },
+      { id: "c", text: "Pencil", is_correct: true },
+      { id: "d", text: "Three dots", is_correct: false },
+      { id: "e", text: "Triangle", is_correct: false },
+      { id: "f", text: "Star", is_correct: false }
     ]
   },
   {
-    id: "D1-104",
+    id: "p2-q101",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "A new Service Desk employee in Latin America complains that the create dates and times are incorrect on their Incident list. What would you suggest to fix this issue?",
-    explanation: "Users can set their own local time zone using the System Settings (gear icon) to ensure all date/time fields reflect their local reality.",
+    text: "What is a quick way to create a report from a list view?",
+    explanation: "Applying a filter and right-clicking a column header to select 'Create Report' is the fastest method.",
     is_active: true,
     choices: [
-      { id: "A", text: "Have them clear their cache.", is_correct: false },
-      { id: "B", text: "Have them use the gear icon to set the employee's time zone.", is_correct: true },
-      { id: "C", text: "Recommend they use Chrome, instead of Explorer.", is_correct: false },
-      { id: "D", text: "Use the system properties to correct the instance's time zone.", is_correct: false },
-      { id: "E", text: "Have them correct the time zone on their computer.", is_correct: false }
+      { id: "a", text: "Click on filter breadcrumb, drag and drop on the Report > Create New module", is_correct: false },
+      { id: "b", text: "Click Funnel, define filter conditions, click Create Report", is_correct: false },
+      { id: "c", text: "Click Context Menu, select Create Report", is_correct: false },
+      { id: "d", text: "Apply filter, right click on column header, select Bar Chart", is_correct: false },
+      { id: "e", text: "Apply filter, right click on column header, select Create Report", is_correct: true }
     ]
   },
   {
-    id: "D1-110",
+    id: "p2-q110",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Which icon would you double click, to expand and collapse the list of all Applications and Modules?",
-    explanation: "Double-clicking the Application icon (or name) in the navigator toggles all expanded applications.",
+    explanation: "Double-clicking the Clock (History) icon is a known shortcut in some UI versions for expanding/collapsing all navigator categories.",
     is_active: true,
     choices: [
-      { id: "A", text: "Star", is_correct: false },
-      { id: "B", text: "Clock", is_correct: false },
-      { id: "C", text: "Application", is_correct: true },
-      { id: "D", text: "Funnel", is_correct: false }
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: true },
+      { id: "c", text: "Application", is_correct: false },
+      { id: "d", text: "Funnel", is_correct: false }
     ]
   },
   {
-    id: "D1-113",
+    id: "p2-q119",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "A user wants to create a set of filter conditions... After clicking the Funnel icon, what should the user do?",
-    explanation: "To combine filters, define the first condition, click 'AND' (or 'OR') for the second, then click 'Run'.",
+    text: "A department manager asks an analyst to build some reports. Where do you recommend the analyst start?",
+    explanation: "The 'Reports > Create New' module is the standard starting point for creating reports.",
     is_active: true,
     choices: [
-      { id: "A", text: "Define the first condition; click AND button; define second condition; click Run", is_correct: true },
-      { id: "B", text: "Define the first condition; click AND button; define second condition; press enter", is_correct: false },
-      { id: "C", text: "Define the first condition; click OR button; define second condition; press enter", is_correct: false },
-      { id: "D", text: "Define the first condition; click > icon on breadcrumb, define second condition; click Run", is_correct: false }
+      { id: "a", text: "Report Dashboard > Create New", is_correct: false },
+      { id: "b", text: "Reports > Getting Started", is_correct: false },
+      { id: "c", text: "Performance Analytics > Reports", is_correct: false },
+      { id: "d", text: "Self-Service > Reports", is_correct: false },
+      { id: "e", text: "Reports > Create New", is_correct: true }
     ]
   },
   {
-    id: "D1-122",
+    id: "p2-q122",
     domain_id: 1,
     type: QuestionType.MULTI_SELECT,
-    text: "What would you do, on a list, if you wanted to show the records in groups, based on the column category? (Choose two)",
-    explanation: "You can group records via the Column Context Menu (right-click header) or the List Context Menu (hamburger).",
+    text: "What would you do, on a list, if you wanted to show the records in groups, based on the column category? (Choose two.)",
+    explanation: "Grouping can be achieved via the list Context Menu or the specific column's context menu.",
     is_active: true,
     choices: [
-      { id: "A", text: "On list Context Menu, select Group By > Category", is_correct: true },
-      { id: "B", text: "On the Filter Menu, select Group By > Category", is_correct: false },
-      { id: "C", text: "Click Group On icon, select Category", is_correct: false },
-      { id: "D", text: "On Navigator Filter, type tablename.group.category and press enter", is_correct: false },
-      { id: "E", text: "On the Category column title, click Context menu > Group By Category", is_correct: true }
+      { id: "a", text: "On list Context Menu, select Group By > Category", is_correct: true },
+      { id: "b", text: "On the Filter Menu, select Group By > Category", is_correct: false },
+      { id: "c", text: "Click Group On icon, select Category", is_correct: false },
+      { id: "d", text: "On Navigator Filter, type tablename.group.category and press enter", is_correct: false },
+      { id: "e", text: "On the Category column title, click Context menu > Group By Category", is_correct: true }
     ]
   },
   {
-    id: "D1-136",
+    id: "p2-q136",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "Which module would you use to customize your instances banner image, text and colors?",
-    explanation: "Basic Configuration UI16 is the standard module for global instance branding.",
+    explanation: "Basic Configuration UI16 is used for primary instance branding.",
     is_active: true,
     choices: [
-      { id: "A", text: "System UI > UI Pages > Branding", is_correct: false },
-      { id: "B", text: "Service Portal > Portals > Branding", is_correct: false },
-      { id: "C", text: "System Properties > Basic Configuration UI16", is_correct: true },
-      { id: "D", text: "System Properties > Branding", is_correct: false },
-      { id: "E", text: "Homepage Admin > Pages > Branding", is_correct: false }
+      { id: "a", text: "System UI > UI Pages > Branding", is_correct: false },
+      { id: "b", text: "Service Portal > Portals > Branding", is_correct: false },
+      { id: "c", text: "System Properties > Basic Configuration UI16", is_correct: true },
+      { id: "d", text: "System Properties > Branding", is_correct: false },
+      { id: "e", text: "Homepage Admin > Pages > Branding", is_correct: false }
     ]
   },
   {
-    id: "D1-140",
+    id: "p2-q140",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "When a user reports that they are not able to see modules on the application navigator, what can you do, to see what modules are visible to them?",
-    explanation: "Impersonating the user is the most reliable way to verify their specific navigation permissions.",
+    explanation: "Impersonation is the best way to verify what another user sees based on their roles.",
     is_active: true,
     choices: [
-      { id: "A", text: "Look up their password, so you can login with their account", is_correct: false },
-      { id: "B", text: "Initiate a Connect Chat session", is_correct: false },
-      { id: "C", text: "Install the Bomgar plug-in", is_correct: false },
-      { id: "D", text: "Impersonate the user", is_correct: true },
-      { id: "E", text: "Launch a NowChat window", is_correct: false }
+      { id: "a", text: "Look up their password, so you can login with their account", is_correct: false },
+      { id: "b", text: "Initiate a Connect Chat session", is_correct: false },
+      { id: "c", text: "Install the Bomgar plug-in", is_correct: false },
+      { id: "d", text: "Impersonate the user", is_correct: true },
+      { id: "e", text: "Launch a NowChat window", is_correct: false }
     ]
   },
   {
-    id: "D1-148",
+    id: "p2-q142",
     domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "From a form, what would you click to add additional fields to the form? (Choose two)",
-    explanation: "Admins use Form Layout (shuttling fields) or Form Design (visual drag-and-drop) to modify form fields.",
+    type: QuestionType.MCQ,
+    text: "While showing a customer their incident form, they ask to change the Priority values to display their internal terminology P1, P2, P3, P4. They want it to be consistent across all Tasks. How would you do that? Right click on Priority and select what?",
+    explanation: "The 'Show Choices' option allows administrators to edit the values and labels for choice fields.",
     is_active: true,
     choices: [
-      { id: "A", text: "Context Menu > Form > Layout", is_correct: false },
-      { id: "B", text: "Context Menu > Configure > Form Layout", is_correct: true },
-      { id: "C", text: "Context Menu > Configure > Form Design", is_correct: true },
-      { id: "D", text: "Right click on header > Add > Field", is_correct: false },
-      { id: "E", text: "Context Menu > Form > Designer", is_correct: false }
+      { id: "a", text: "Configure Lists", is_correct: false },
+      { id: "b", text: "Show Options", is_correct: false },
+      { id: "c", text: "Configure Task", is_correct: false },
+      { id: "d", text: "Show Choices", is_correct: true },
+      { id: "e", text: "Show Choice List", is_correct: false },
+      { id: "f", text: "Configure Options", is_correct: false }
     ]
   },
   {
-    id: "D1-150",
+    id: "p2-q150",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "On a Form header, what is the three bar icon called?",
-    explanation: "The three horizontal lines represent the Context Menu or 'Additional Actions'.",
+    explanation: "The three horizontal lines are called the Additional Actions or Context Menu icon.",
     is_active: true,
     choices: [
-      { id: "A", text: "Pancake icon", is_correct: false },
-      { id: "B", text: "Additional Actions or Context Menu", is_correct: true },
-      { id: "C", text: "Hamburger icon", is_correct: false },
-      { id: "D", text: "Cake icon", is_correct: false }
+      { id: "a", text: "Pancake icon", is_correct: false },
+      { id: "b", text: "Additional Actions or Context Menu", is_correct: true },
+      { id: "c", text: "Hamburger icon", is_correct: false },
+      { id: "d", text: "Cake icon", is_correct: false }
     ]
   },
+
+  // --- PART 3 (Questions 31 - 45) ---
   {
-    id: "D1-152",
+    id: "p3-q49",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "What function do you use to add buttons, links, and context menu items on forms and lists?",
-    explanation: "UI Actions are used to define interactive elements like 'Submit', 'Resolve', or links like 'Show Related Records'.",
+    text: "Which of the following allows a user to edit field values in a list without opening the form?",
+    explanation: "The List Editor enables quick data changes directly within the list pane.",
     is_active: true,
     choices: [
-      { id: "A", text: "UI Policies", is_correct: false },
-      { id: "B", text: "UI Settings", is_correct: false },
-      { id: "C", text: "UI Actions", is_correct: true },
-      { id: "D", text: "UI Config", is_correct: false }
+      { id: "a", text: "Data Editor", is_correct: false },
+      { id: "b", text: "Edit Menu", is_correct: false },
+      { id: "c", text: "List Editor", is_correct: true },
+      { id: "d", text: "Form Designer", is_correct: false }
     ]
   },
   {
-    id: "D1-156",
+    id: "p3-q62",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "When impersonating a user for testing purposes, what is the best way to return the instance, logged in with your user account?",
-    explanation: "Select 'End Impersonation' from the user menu to return to your original admin session.",
+    text: "Which section of the ServiceNow UI allows you to perform a global search?",
+    explanation: "Global Search is part of the banner frame at the top edge of the UI.",
     is_active: true,
     choices: [
-      { id: "A", text: "Turn your computer off and on again", is_correct: false },
-      { id: "B", text: "Clear browser cache", is_correct: false },
-      { id: "C", text: "End Impersonation", is_correct: true },
-      { id: "D", text: "Log out and back in", is_correct: false }
+      { id: "a", text: "Application Navigator", is_correct: false },
+      { id: "b", text: "Banner frame", is_correct: true },
+      { id: "c", text: "List pane", is_correct: false },
+      { id: "d", text: "Content frame", is_correct: false }
     ]
   },
   {
-    id: "D1-160",
+    id: "p3-q63",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "On a filter condition, which component is always a choice list?",
-    explanation: "The Operator (e.g., 'is', 'contains', 'greater than') is always selected from a fixed list of options.",
+    text: "How do you make a list filter available to everyone?",
+    explanation: "To share a filter, define a name, set visibility to everyone, and save.",
     is_active: true,
     choices: [
-      { id: "A", text: "Operator", is_correct: true },
-      { id: "B", text: "Filter Criteria", is_correct: false },
-      { id: "C", text: "Operation", is_correct: false },
-      { id: "D", text: "Match Criteria", is_correct: false }
+      { id: "a", text: "Make active, assign a name, and save", is_correct: false },
+      { id: "b", text: "Assign a group, set visibility, and save", is_correct: false },
+      { id: "c", text: "Assign a name, set visibility, and save", is_correct: true },
+      { id: "d", text: "Make active, set visibility, and save", is_correct: false }
     ]
   },
   {
-    id: "D1-162",
+    id: "p3-q64",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "A user is complaining that they are seeing a blank page, when they click Create New, from your custom Inventory application... What could be the cause?",
-    explanation: "A broken link in the module configuration often results in a blank page or a 404 error.",
+    text: "What would NOT appear in the Application Navigator if service is typed into the filter field?",
+    explanation: "Filtered navigator displays items matching the text. 'Incident > Assigned to me' lacks the keyword 'service'.",
     is_active: true,
     choices: [
-      { id: "A", text: "Create New module has a broken link", is_correct: true },
-      { id: "B", text: "Known intermittent issue with UI15", is_correct: false },
-      { id: "C", text: "User should be using Chrome instead of Explorer", is_correct: false },
-      { id: "D", text: "User has read role, but not the write role", is_correct: false }
+      { id: "a", text: "Configuration > Business Services", is_correct: false },
+      { id: "b", text: "Self-Service > Knowledge", is_correct: false },
+      { id: "c", text: "Service Portal > Widgets", is_correct: false },
+      { id: "d", text: "Incident > Assigned to me", is_correct: true }
     ]
   },
   {
-    id: "D1-168",
+    id: "p3-q65",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "The wait time for end users is based on the round-trip between the client and the server. What activities are included in the round-trips?",
-    explanation: "A round-trip consists of the Request sent by the browser and the Response sent back by the server.",
+    text: "Which of the following is used to categorize, flag, and locate records?",
+    explanation: "Tags provide a metadata layer for categorizing and finding specific records.",
     is_active: true,
     choices: [
-      { id: "A", text: "Request + Response", is_correct: true },
-      { id: "B", text: "Save + Update", is_correct: false },
-      { id: "C", text: "Write + Read", is_correct: false },
-      { id: "D", text: "Submit + Query", is_correct: false }
+      { id: "a", text: "Search", is_correct: false },
+      { id: "b", text: "Favorites", is_correct: false },
+      { id: "c", text: "Tags", is_correct: true },
+      { id: "d", text: "Bookmarks", is_correct: false }
     ]
   },
   {
-    id: "D1-181",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "What attributes can you manage, using System Properties > Basic Configuration UI16? (Choose five)",
-    explanation: "Basic Configuration covers Banner Image, Header Colors, Tab Title, Base Theme, and Module text colors.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Browser tab title", is_correct: true },
-      { id: "B", text: "Module text color", is_correct: true },
-      { id: "C", text: "Preferred browser", is_correct: false },
-      { id: "D", text: "Base theme", is_correct: true },
-      { id: "E", text: "Font style", is_correct: false },
-      { id: "F", text: "Animation style", is_correct: false },
-      { id: "G", text: "Header background color", is_correct: true },
-      { id: "H", text: "Banner Image", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-188",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "What are the main components of the Form Design interface? (Choose three)",
-    explanation: "Form Design consists of the Page Header, Field Navigator (left sidebar), and Form Layout (canvas).",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Field Layout", is_correct: false },
-      { id: "B", text: "Page Header", is_correct: true },
-      { id: "C", text: "Field Navigator", is_correct: true },
-      { id: "D", text: "Field Picker", is_correct: false },
-      { id: "E", text: "Form Layout", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-203",
+    id: "p3-q66",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "On a filter condition, there is an element, which is based on the table, the user access rights, and columns on the table. What is this element called?",
-    explanation: "The 'Field' element of a filter determines which column of the table is being evaluated.",
+    text: "Which tool should be used to populate commonly used fields in a form?",
+    explanation: "Templates help speed up form completion by pre-filling standard values.",
     is_active: true,
     choices: [
-      { id: "A", text: "Label", is_correct: false },
-      { id: "B", text: "Column", is_correct: false },
-      { id: "C", text: "Data Element", is_correct: false },
-      { id: "D", text: "Field", is_correct: true },
-      { id: "E", text: "Attribute", is_correct: false }
+      { id: "a", text: "Template", is_correct: true },
+      { id: "b", text: "Reference Qualifier", is_correct: false },
+      { id: "c", text: "Formatter", is_correct: false },
+      { id: "d", text: "Assignment Rule", is_correct: false }
     ]
   },
   {
-    id: "D1-206",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "When managing tags, you can adjust who is able to see it. What are the visibility options? (Choose three)",
-    explanation: "Tags can be restricted to 'Me' (private), specific 'Groups and Users', or 'Everyone'.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Groups and Users", is_correct: true },
-      { id: "B", text: "Me", is_correct: true },
-      { id: "C", text: "Roles and Permissions", is_correct: false },
-      { id: "D", text: "Everyone", is_correct: true },
-      { id: "E", text: "Admins", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-208",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "On the Form header, which icon do you use to access form templates?",
-    explanation: "Templates are accessed via the 'More Options' (three dots) menu in the form header.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Stamp", is_correct: false },
-      { id: "B", text: "Pages", is_correct: false },
-      { id: "C", text: "More Options (...)", is_correct: true },
-      { id: "D", text: "Paperclip", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-215",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "What icon do you use to change the icon and color on a Favorite?",
-    explanation: "The pencil icon on the favorites tab allows customizing the visual representation of a favorite.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Clock", is_correct: false },
-      { id: "B", text: "Pencil", is_correct: true },
-      { id: "C", text: "Triangle", is_correct: false },
-      { id: "D", text: "Star", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-217",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "When looking at a long list, you want to quickly filter to show only those which have Category of Hardware. How might you do that?",
-    explanation: "Right-clicking a value in a list and selecting 'Show Matching' is the fastest way to filter.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "On the Category column header, right click and select Show > Hardware", is_correct: false },
-      { id: "B", text: "Right click on magnifier, type Hardware", is_correct: false },
-      { id: "C", text: "On the list, locate and right click on the value Hardware, select Show Matching", is_correct: true },
-      { id: "D", text: "On Breadcrumb, click > icon, type Hardware", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-218",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "When looking at a long list, you want to quickly filter to show only those which have Short Description containing email. How might you do that?",
-    explanation: "Using the asterisk (*) as a wildcard in column search (e.g., *email) performs a 'contains' search.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "On Short Description, type email", is_correct: false },
-      { id: "B", text: "On Search box, select text, type email", is_correct: false },
-      { id: "C", text: "On Short Description, type *email", is_correct: true },
-      { id: "D", text: "On Short Description, type %email", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-225",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "From a related list, what would a user click to personalize the layout of the columns?",
-    explanation: "The Gear icon on a related list allows individual users to choose which columns are visible.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Gear", is_correct: true },
-      { id: "B", text: "Context Menu", is_correct: false },
-      { id: "C", text: "Pencil", is_correct: false },
-      { id: "D", text: "Magnifier", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-227",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "What are examples of UI Actions, relating to Lists? (Choose four)",
-    explanation: "UI Actions for lists include List Buttons, List Links, List Choices (bottom dropdown), and List Context Menu items.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "List Links", is_correct: true },
-      { id: "B", text: "List Choices", is_correct: true },
-      { id: "C", text: "List Buttons", is_correct: true },
-      { id: "D", text: "List Override", is_correct: false },
-      { id: "E", text: "List Context Menu", is_correct: true },
-      { id: "F", text: "List Control", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-241",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "On a related list, which buttons are commonly used for managing the records on the list? (Choose three)",
-    explanation: "Common related list UI buttons are New (create), Edit (relate existing), and Add.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Add", is_correct: true },
-      { id: "B", text: "Edit", is_correct: true },
-      { id: "C", text: "Publish", is_correct: false },
-      { id: "D", text: "Manage", is_correct: false },
-      { id: "E", text: "New", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-243",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "On what part of the ServiceNow instance, would you find the option to access applications, like Incident Management?",
-    explanation: "The Application Navigator (left side) is the primary gateway to all modules and applications.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Application Navigator", is_correct: true },
-      { id: "B", text: "Service Desk Homepage", is_correct: false },
-      { id: "C", text: "Self Service Module", is_correct: false },
-      { id: "D", text: "Favorites", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-245",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "On a form, which type of field has this icon which can be clicked, to see a preview of the associated record?",
-    explanation: "Reference fields link to other tables and include a 'preview' icon to see details without leaving the page.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Lookup", is_correct: false },
-      { id: "B", text: "Preview", is_correct: false },
-      { id: "C", text: "Reference", is_correct: true },
-      { id: "D", text: "Snapshot", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-246",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "While on an Incident record, how would you add a Tag for 'Special Handling' to the record?",
-    explanation: "Tags can be added via the 'More Options' (...) menu in the banner or by typing in the tag field if visible.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Click on the Context menu, select Add Tag", is_correct: false },
-      { id: "B", text: "Click on the More options (...) icon, click Add Tag, type Special Handling", is_correct: true },
-      { id: "C", text: "On the Tag field, select from choice list", is_correct: false },
-      { id: "D", text: "Check the Special Handling box", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-254",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "Which banner icon do you use to change your personal system settings, like your instance color scheme?",
-    explanation: "The Gear icon in the banner frame provides access to individual user preferences and settings.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Magnifier", is_correct: false },
-      { id: "B", text: "Question mark", is_correct: false },
-      { id: "C", text: "Gear", is_correct: true },
-      { id: "D", text: "Chat bubbles", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-258",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "What section on the notes tab, shows the history of the work documented on the record?",
-    explanation: "The Activity Stream (or Activity) displays a chronological log of all field changes and comments.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Audit Log", is_correct: false },
-      { id: "B", text: "Timeline", is_correct: false },
-      { id: "C", text: "Journal", is_correct: false },
-      { id: "D", text: "Diary", is_correct: false },
-      { id: "E", text: "Activity or Activity Stream", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-262",
-    domain_id: 1,
-    type: QuestionType.MULTI_SELECT,
-    text: "What are examples of UI Actions relating to forms? (Choose three)",
-    explanation: "Form-based UI Actions include Form Buttons (e.g. Save, Submit), Form Context Menu items, and Form Links.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Form Columns", is_correct: false },
-      { id: "B", text: "Form View", is_correct: false },
-      { id: "C", text: "Form Buttons", is_correct: true },
-      { id: "D", text: "Form Context Menu", is_correct: true },
-      { id: "E", text: "Form Links", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-277",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "On what part of the ServiceNow instance, would you find the option to Impersonate User?",
-    explanation: "Impersonation is found within the User Menu (clicking your name/avatar in the banner frame).",
-    is_active: true,
-    choices: [
-      { id: "A", text: "User Menu", is_correct: true },
-      { id: "B", text: "Content Fame or Banner", is_correct: false },
-      { id: "C", text: "Application Navigator", is_correct: false },
-      { id: "D", text: "Module", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-281",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "You are editing a new incident record and would like the 'Save' button to be located on the Form header. Which action would need to be taken?",
-    explanation: "While UI Actions control the button itself, the standard admin path to modify form elements is often via Configure > Form Layout.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Context Menu > Form Design > add button", is_correct: false },
-      { id: "B", text: "Turn on glide.ui.advanced property", is_correct: false },
-      { id: "C", text: "Turn on the 'Save' button in UI Properties", is_correct: false },
-      { id: "D", text: "Context Menu > Form Layout > add the 'Save' button", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-284",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "What is the name of the string that displays filter criteria?",
-    explanation: "The breadcrumb displays the active filter conditions at the top of a list (e.g., All > Active = true).",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Breadcrumb", is_correct: true },
-      { id: "B", text: "Choice", is_correct: false },
-      { id: "C", text: "Menu", is_correct: false },
-      { id: "D", text: "Topic", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-287",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "A colleague wants to rearrange the columns on their My Work List. Where should they navigate to arrange the columns?",
-    explanation: "The 'Personalize List' (gear icon) is for individual user layout. 'Configure List Layout' is for global admin changes.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Configure > List Layout", is_correct: false },
-      { id: "B", text: "Click List Context Menu > Configure > List Layout", is_correct: false },
-      { id: "C", text: "Click List Context Menu > Personalize List", is_correct: false },
-      { id: "D", text: "Click Personalize List (Gear Icon)", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-288",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "You are looking at a list of Active Incidents. You want to exclude Incidents with the state of Resolved. How might you do that?",
-    explanation: "Right-clicking a cell value and selecting 'Filter Out' removes records with that specific value from the current view.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "On Search, select State, type not Resolved", is_correct: false },
-      { id: "B", text: "On State column title, select Filter Out", is_correct: false },
-      { id: "C", text: "On the record, locate and right-click on Resolved, select Filter Out", is_correct: true },
-      { id: "D", text: "Locate and right-click Resolved, select Exclude", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-294",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "What action will allow you to personalize layouts of columns in a list?",
-    explanation: "Individual users use the Gear Icon (Personalize List) to select and reorder columns for their own view.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Context Menu > View > Personalize", is_correct: false },
-      { id: "B", text: "Click Gear Icon > Select columns", is_correct: true },
-      { id: "C", text: "Right click header > Choose options", is_correct: false },
-      { id: "D", text: "Select column > Click Edit icon", is_correct: false }
-    ]
-  },
-  {
-    id: "D1-296",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "Which path would you take to access the table configuration page from a form?",
-    explanation: "The 'Configure > Table' option in the form context menu takes you directly to the dictionary definition of the table.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Form Context menu > View > Show Table", is_correct: false },
-      { id: "B", text: "Form Context menu > View > Table", is_correct: false },
-      { id: "C", text: "Form Context menu > Configure > Dictionary", is_correct: false },
-      { id: "D", text: "Form Context menu > Configure > Table", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-306",
-    domain_id: 1,
-    type: QuestionType.MCQ,
-    text: "The customer has asked that you change the default layout of the Task list for everyone. Where would you click?",
-    explanation: "Admins use Configure > List Layout to set the default system-wide column view.",
-    is_active: true,
-    choices: [
-      { id: "A", text: "Click List Context Menu > Personalize List", is_correct: false },
-      { id: "B", text: "Click List Context Menu > Configure > Columns", is_correct: false },
-      { id: "C", text: "Right click List Gear icon", is_correct: false },
-      { id: "D", text: "Right click header, Context Menu > Configure > List Layout", is_correct: true }
-    ]
-  },
-  {
-    id: "D1-308",
+    id: "p3-q98",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "What icon do you use to change the label on a Favorite?",
-    explanation: "The Pencil icon is the universal edit button for favorites in the sidebar.",
+    explanation: "The edit pencil is used to modify the favorite entry properties.",
     is_active: true,
     choices: [
-      { id: "A", text: "Star", is_correct: false },
-      { id: "B", text: "Clock", is_correct: false },
-      { id: "C", text: "Triangle", is_correct: false },
-      { id: "D", text: "Pencil", is_correct: true }
+      { id: "a", text: "Clock", is_correct: false },
+      { id: "b", text: "Hamburger", is_correct: false },
+      { id: "c", text: "Pencil", is_correct: true },
+      { id: "d", text: "Three dots", is_correct: false },
+      { id: "e", text: "Triangle", is_correct: false },
+      { id: "f", text: "Star", is_correct: false }
     ]
   },
   {
-    id: "D1-313",
+    id: "p3-q110",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "What section on a task record is used to see the most recent updates made to a record?",
-    explanation: "The Activity Stream (Activity) allows users to quickly see work notes, comments, and field changes.",
+    text: "Which icon would you double click, to expand and collapse the list of all Applications and Modules?",
+    explanation: "Double-clicking the Clock (History) icon is a navigation shortcut for collapsing categories.",
     is_active: true,
     choices: [
-      { id: "A", text: "Timeline", is_correct: false },
-      { id: "B", text: "Related List", is_correct: false },
-      { id: "C", text: "Activity Stream", is_correct: true },
-      { id: "D", text: "Audit Log", is_correct: false }
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: true },
+      { id: "c", text: "Application", is_correct: false },
+      { id: "d", text: "Funnel", is_correct: false }
     ]
   },
   {
-    id: "D1-316",
+    id: "p3-q119",
     domain_id: 1,
     type: QuestionType.MCQ,
-    text: "In addition to the admin role, which role allows a user to add or remove fields from a list?",
-    explanation: "The 'personal_list' role allows non-admins to use the gear icon to customize their own list views.",
+    text: "A department manager asks an analyst to build some reports. Where do you recommend the analyst start?",
+    explanation: "Reports > Create New is the intended entry point for creating custom reports.",
     is_active: true,
     choices: [
-      { id: "A", text: "personalize.control", is_correct: false },
-      { id: "B", text: "personal_list", is_correct: true },
-      { id: "C", text: "ui_page_admin", is_correct: false },
-      { id: "D", text: "ui_action_admin", is_correct: false }
+      { id: "a", text: "Report Dashboard > Create New", is_correct: false },
+      { id: "b", text: "Reports > Getting Started", is_correct: false },
+      { id: "c", text: "Performance Analytics > Reports", is_correct: false },
+      { id: "d", text: "Self-Service > Reports", is_correct: false },
+      { id: "e", text: "Reports > Create New", is_correct: true }
     ]
   },
   {
-    id: "D1-319",
+    id: "p3-q122",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What would you do, on a list, if you wanted to show the records in groups, based on the column category? (Choose two.)",
+    explanation: "Records can be grouped using the list context menu or the column context menu.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "On list Context Menu, select Group By > Category", is_correct: true },
+      { id: "b", text: "On the Filter Menu, select Group By > Category", is_correct: false },
+      { id: "c", text: "Click Group On icon, select Category", is_correct: false },
+      { id: "d", text: "On Navigator Filter, type tablename.group.category and press enter", is_correct: false },
+      { id: "e", text: "On the Category column title, click Context menu > Group By Category", is_correct: true }
+    ]
+  },
+  {
+    id: "p3-q136",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which module would you use to customize your instances banner image, text and colors?",
+    explanation: "Basic Configuration UI16 provides the interface for instance branding customization.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "System UI > UI Pages > Branding", is_correct: false },
+      { id: "b", text: "Service Portal > Portals > Branding", is_correct: false },
+      { id: "c", text: "System Properties > Basic Configuration UI16", is_correct: true },
+      { id: "d", text: "System Properties > Branding", is_correct: false },
+      { id: "e", text: "Homepage Admin > Pages > Branding", is_correct: false }
+    ]
+  },
+  {
+    id: "p3-q140",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "When a user reports that they are not able to see modules on the application navigator, what can you do, to see what modules are visible to them?",
+    explanation: "Admins use Impersonate User to troubleshoot visibility issues exactly from the user's perspective.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Look up their password, so you can login with their account", is_correct: false },
+      { id: "b", text: "Initiate a Connect Chat session", is_correct: false },
+      { id: "c", text: "Install the Bomgar plug-in", is_correct: false },
+      { id: "d", text: "Impersonate the user", is_correct: true },
+      { id: "e", text: "Launch a NowChat window", is_correct: false }
+    ]
+  },
+  {
+    id: "p3-q150",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a Form header, what is the three bar icon called?",
+    explanation: "This icon opens the Context Menu or Additional Actions for the record.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Pancake icon", is_correct: false },
+      { id: "b", text: "Additional Actions or Context Menu", is_correct: true },
+      { id: "c", text: "Hamburger icon", is_correct: false },
+      { id: "d", text: "Cake icon", is_correct: false }
+    ]
+  },
+  {
+    id: "p3-q225",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "From a related list, what would a user click to personalize the layout of the columns?",
+    explanation: "The Gear icon in a related list header allows individual users to choose and arrange columns.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Gear", is_correct: true },
+      { id: "b", text: "Context Menu", is_correct: false },
+      { id: "c", text: "Pencil", is_correct: false },
+      { id: "d", text: "Magnifier", is_correct: false }
+    ]
+  },
+  {
+    id: "p3-q287",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A colleague wants to rearrange the columns on their My Work List. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+    explanation: "Clicking 'Personalize List' (via the Gear) is the way to rearrange columns for an individual user's view.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Right click on any column header, Context Menu > Configure > List Layout", is_correct: false },
+      { id: "b", text: "Click List Context Menu > Configure > List Layout", is_correct: false },
+      { id: "c", text: "Click List Context Menu > Personalize List", is_correct: false },
+      { id: "d", text: "Click Personalize List", is_correct: true }
+    ]
+  },
+
+  // --- PART 4 (Questions 46 - 60) ---
+  {
+    id: "p4-q32",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What is a formatter? Select one of the following.",
+    explanation: "A formatter is a form element used to display information that is not a field in the record.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "A formatter allows you to configure applications on your instance", is_correct: false },
+      { id: "b", text: "A formatter is a form element used to display information that is not a field in the record", is_correct: true },
+      { id: "c", text: "A formatter allows you to populate fields automatically", is_correct: false },
+      { id: "d", text: "A formatter is a set of conditions applied to a table to help find and work with data", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q37",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "Which of the following can be customized through the Basic Configuration UI 16 module? (Choose three.)",
+    explanation: "Basic Configuration UI 16 allows customizing the Banner Image, Browser Tab Title, and System Date Format.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Banner Image", is_correct: true },
+      { id: "b", text: "Record Number Format", is_correct: false },
+      { id: "c", text: "Browser Tab Title", is_correct: true },
+      { id: "d", text: "System Date Format", is_correct: true },
+      { id: "e", text: "Form Header Size", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q49",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which of the following allows a user to edit field values in a list without opening the form?",
+    explanation: "The List Editor allows inline editing of field values in a list.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Data Editor", is_correct: false },
+      { id: "b", text: "Edit Menu", is_correct: false },
+      { id: "c", text: "List Editor", is_correct: true },
+      { id: "d", text: "Form Designer", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q54",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Where can Admins check which release is running on an ServiceNow instance?",
+    explanation: "The System.upgraded table (and the stats module) indicates which release is running.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Memory Stats module", is_correct: false },
+      { id: "b", text: "Stats module", is_correct: false },
+      { id: "c", text: "System.upgraded table", is_correct: true },
+      { id: "d", text: "Transactions log", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q66",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which tool should be used to populate commonly used fields in a form?",
+    explanation: "Templates are used to auto-populate fields with standard values.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Template", is_correct: true },
+      { id: "b", text: "Reference Qualifier", is_correct: false },
+      { id: "c", text: "Formatter", is_correct: false },
+      { id: "d", text: "Assignment Rule", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q98",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What icon do you use to change the label on a Favorite?",
+    explanation: "The Pencil icon in the Favorites tab is used to edit favorites.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Clock", is_correct: false },
+      { id: "b", text: "Hamburger", is_correct: false },
+      { id: "c", text: "Pencil", is_correct: true },
+      { id: "d", text: "Three dots", is_correct: false },
+      { id: "e", text: "Triangle", is_correct: false },
+      { id: "f", text: "Star", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q110",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which icon would you double click, to expand and collapse the list of all Applications and Modules?",
+    explanation: "Double-clicking the Clock icon (History tab) collapses/expands the navigator categories.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: true },
+      { id: "c", text: "Application", is_correct: false },
+      { id: "d", text: "Funnel", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q119",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A department manager asks an analyst to build some reports. Where do you recommend the analyst start?",
+    explanation: "The standard place to start report creation is Reports > Create New.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Report Dashboard > Create New", is_correct: false },
+      { id: "b", text: "Reports > Getting Started", is_correct: false },
+      { id: "c", text: "Performance Analytics > Reports", is_correct: false },
+      { id: "d", text: "Self-Service > Reports", is_correct: false },
+      { id: "e", text: "Reports > Create New", is_correct: true }
+    ]
+  },
+  {
+    id: "p4-q136",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which module would you use to customize your instances banner image, text and colors?",
+    explanation: "System Properties > Basic Configuration UI16 is used for primary instance branding.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "System UI > UI Pages > Branding", is_correct: false },
+      { id: "b", text: "Service Portal > Portals > Branding", is_correct: false },
+      { id: "c", text: "System Properties > Basic Configuration UI16", is_correct: true },
+      { id: "d", text: "System Properties > Branding", is_correct: false },
+      { id: "e", text: "Homepage Admin > Pages > Branding", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q140",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "When a user reports that they are not able to see modules on the application navigator, what can you do, to see what modules are visible to them?",
+    explanation: "Impersonation allows admins to see exactly what the user sees.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Look up their password, so you can login with their account", is_correct: false },
+      { id: "b", text: "Initiate a Connect Chat session", is_correct: false },
+      { id: "c", text: "Install the Bomgar plug-in", is_correct: false },
+      { id: "d", text: "Impersonate the user", is_correct: true },
+      { id: "e", text: "Launch a NowChat window", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q150",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a Form header, what is the three bar icon called?",
+    explanation: "The icon with three lines on a form is the Additional Actions or Context Menu.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Pancake icon", is_correct: false },
+      { id: "b", text: "Additional Actions or Context Menu", is_correct: true },
+      { id: "c", text: "Hamburger icon", is_correct: false },
+      { id: "d", text: "Cake icon", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q225",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "From a related list, what would a user click to personalize the layout of the columns?",
+    explanation: "The Gear icon in the related list header allows column personalization.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Gear", is_correct: true },
+      { id: "b", text: "Context Menu", is_correct: false },
+      { id: "c", text: "Pencil", is_correct: false },
+      { id: "d", text: "Magnifier", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q287",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A colleague wants to rearrange the columns on their My Work List. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+    explanation: "Clicking 'Personalize List' (often via the Gear icon) allows rearranging columns.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Right click on any column header, Context Menu > Configure > List Layout", is_correct: false },
+      { id: "b", text: "Click List Context Menu > Configure > List Layout", is_correct: false },
+      { id: "c", text: "Click List Context Menu > Personalize List", is_correct: false },
+      { id: "d", text: "Click Personalize List", is_correct: true }
+    ]
+  },
+  {
+    id: "p4-q294",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What action will allow you to personalize layouts of columns in a list?",
+    explanation: "Clicking the Gear Icon opens the Personalize window options where columns can be selected.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Context Menu > View > Personalize", is_correct: false },
+      { id: "b", text: "Click Gear Icon > Personalize window options > Select the appropriate columns", is_correct: true },
+      { id: "c", text: "Select the column to be personalized and right at the header > Choose the options to personalize", is_correct: false },
+      { id: "d", text: "Select the column to be personalized > Click Edit icon (Pencil) > Choose the options to personalize", is_correct: false }
+    ]
+  },
+  {
+    id: "p4-q300",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What do you click when you have made modifications to your report, and you want to see the results without saving?",
+    explanation: "The Preview button in the report builder allows viewing results without committing a save.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Preview", is_correct: true },
+      { id: "b", text: "Test", is_correct: false },
+      { id: "c", text: "Run", is_correct: false },
+      { id: "d", text: "Try It", is_correct: false },
+      { id: "e", text: "Execute", is_correct: false }
+    ]
+  },
+
+  // --- PART 5 (Questions 61 - 75) ---
+  {
+    id: "p5-q71",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What are (are) best practice(s) regarding users/groups/roles? (Choose two.)",
+    explanation: "Best practice is to assign roles to groups and add users to those groups, rather than assigning roles directly to individual users.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "You should never assign roles to groups.", is_correct: false },
+      { id: "b", text: "You should assign roles to users.", is_correct: false },
+      { id: "c", text: "You should add users to groups.", is_correct: true },
+      { id: "d", text: "You should assign roles to groups", is_correct: true }
+    ]
+  },
+  {
+    id: "p5-q72",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What are two ways to generate an Event? (Choose two.)",
+    explanation: "Events are typically generated by Business Rules (server-side script) or as part of a Workflow/Flow process.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Business Rule", is_correct: true },
+      { id: "b", text: "Workflow", is_correct: true },
+      { id: "c", text: "Log entry", is_correct: false },
+      { id: "d", text: "Knowledge article publication", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q75",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What is a sys_id?",
+    explanation: "A sys_id is a unique 32-character GUID (Globally Unique Identifier) assigned to every single record in the ServiceNow database.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Unique 32-character identifier that is assigned to every record", is_correct: true },
+      { id: "b", text: "A client-side Business Rule", is_correct: false },
+      { id: "c", text: "A server-side Business Rule", is_correct: false },
+      { id: "d", text: "Unique 64-character identifier that is assigned to every record", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q76",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "When creating a global custom table named abc, what is the table name that is automatically assigned by the platform?",
+    explanation: "Custom tables in the global scope are automatically prefixed with 'u_' followed by the name provided.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "snc_abc", is_correct: false },
+      { id: "b", text: "abc", is_correct: false },
+      { id: "c", text: "u_abc", is_correct: true },
+      { id: "d", text: "sys_abc", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q78",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which is the primary application used to load data into ServiceNow?",
+    explanation: "Import Sets are used to import data from various external data sources and map them into ServiceNow tables.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Service Level Management", is_correct: false },
+      { id: "b", text: "Configuration", is_correct: false },
+      { id: "c", text: "System Import Sets", is_correct: true },
+      { id: "d", text: "System Update Sets", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q85",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which of the following protects applications by identifying and restricting access to available files and data?",
+    explanation: "Access Control Rules (ACLs) are the primary security mechanism for restricting access to data and files based on roles and conditions.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Application Configuration", is_correct: false },
+      { id: "b", text: "Verbose Log", is_correct: false },
+      { id: "c", text: "Access Control Rules", is_correct: true },
+      { id: "d", text: "Application Scope", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q86",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which one statement correctly describes Access Control rule evaluation?",
+    explanation: "For an operation to be allowed on a field, the user must pass both the Table-level (Row) ACL and the Field-level ACL.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Table access rules are evaluated from the general to the specific", is_correct: false },
+      { id: "b", text: "If more than one rule applies to a record, the older rule is evaluated first", is_correct: false },
+      { id: "c", text: "If a row level rule and a field level rule exist, both rules must be true before an operation is allowed", is_correct: true },
+      { id: "d", text: "The role with the most permissions evaluates the rules first", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q90",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "The ServiceNow platform includes which types of interfaces? (Choose three.)",
+    explanation: "ServiceNow offers various interfaces including Mobile Apps (Now Mobile), Service Portals, and the standard Now Platform UI.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Now Mobile Apps", is_correct: true },
+      { id: "b", text: "Agent Control Center", is_correct: false },
+      { id: "c", text: "Back Office Dashboard", is_correct: false },
+      { id: "d", text: "Service Portals", is_correct: true },
+      { id: "e", text: "Now Platform® User Interfaces", is_correct: true },
+      { id: "f", text: "Field Service Taskboard", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q91",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "Which of the following are not included in an Update Set, by default? (Choose four.)",
+    explanation: "Update Sets capture configuration changes, but do not capture Data (records), published Workflows (though their definitions are captured, standard operational data isn't), Schedules, or Scheduled Jobs.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Homepages", is_correct: false },
+      { id: "b", text: "Data", is_correct: true },
+      { id: "c", text: "Published Workflows", is_correct: true },
+      { id: "d", text: "Business Rules", is_correct: false },
+      { id: "e", text: "Schedules", is_correct: true },
+      { id: "f", text: "Database changes", is_correct: false },
+      { id: "g", text: "Related Lists", is_correct: false },
+      { id: "h", text: "Report Definitions", is_correct: false },
+      { id: "i", text: "Scheduled Jobs", is_correct: true },
+      { id: "j", text: "Client Scripts", is_correct: false },
+      { id: "k", text: "Views", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q94",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What do you activate when you want to add applications or functionality within your development instance?",
+    explanation: "Plugins are the mechanism used to activate additional features and applications in a ServiceNow instance.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "App Package", is_correct: false },
+      { id: "b", text: "Updated Pack", is_correct: false },
+      { id: "c", text: "Patch", is_correct: false },
+      { id: "d", text: "Plugin", is_correct: true },
+      { id: "e", text: "App Updated Set", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q98",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What icon do you use to change the label on a Favorite?",
+    explanation: "The Pencil icon in the Favorites tab allows you to edit the label and other properties of the favorite.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: false },
+      { id: "c", text: "Triangle", is_correct: false },
+      { id: "d", text: "Pencil", is_correct: true }
+    ]
+  },
+  {
+    id: "p5-q99",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What needs to be specified, when creating a Business Rule? (Choose four.)",
+    explanation: "A Business Rule requires a Table, the Timing (When), the Condition to evaluate, and the Script or Action to run.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "UI action", is_correct: false },
+      { id: "b", text: "Table", is_correct: true },
+      { id: "c", text: "Fields to update", is_correct: false },
+      { id: "d", text: "Who can run", is_correct: false },
+      { id: "e", text: "Script to run", is_correct: true },
+      { id: "f", text: "Application scope", is_correct: false },
+      { id: "g", text: "Update set", is_correct: false },
+      { id: "h", text: "Timing", is_correct: true },
+      { id: "i", text: "Condition to evaluate", is_correct: true }
+    ]
+  },
+  {
+    id: "p5-q104",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A new Service Desk employee in Latin America complains that the create dates and times are incorrect on their Incident list. What would you suggest to fix this issue?",
+    explanation: "Users can personalize their own time zone settings using the Gear icon (System Settings) in the banner frame.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Have them clear their cache.", is_correct: false },
+      { id: "b", text: "Have them use the gear icon to set the employee's time zone.", is_correct: true },
+      { id: "c", text: "Recommend they use Chrome, instead of Explorer.", is_correct: false },
+      { id: "d", text: "Use the system properties to correct the instance's time zone.", is_correct: false },
+      { id: "e", text: "Have them correct the time zone on their computer.", is_correct: false }
+    ]
+  },
+  {
+    id: "p5-q107",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What is a no-code approach to control the mandatory or read-only state of a form field?",
+    explanation: "UI Policies provide a no-code way to manage field attributes like visibility, mandatory, and read-only based on conditions.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "UI Action", is_correct: false },
+      { id: "b", text: "Client Script", is_correct: false },
+      { id: "c", text: "UI Script", is_correct: false },
+      { id: "d", text: "UI Rule", is_correct: false },
+      { id: "e", text: "UI Policy", is_correct: true }
+    ]
+  },
+  {
+    id: "p5-q112",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which tool is used to change the order of fields on a form for all users?",
+    explanation: "Administrators use Form Layout (or Form Designer) to change the organization and order of fields on a form globally.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Personalize List", is_correct: false },
+      { id: "b", text: "Form Layout", is_correct: true },
+      { id: "c", text: "UI Policy", is_correct: false },
+      { id: "d", text: "Form Filter", is_correct: false }
+    ]
+  },
+
+  // --- PART 6 (Questions 76 - 90) ---
+  {
+    id: "p6-q110",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which icon would you double click, to expand and collapse the list of all Applications and Modules?",
+    explanation: "Double-clicking the Clock icon (History tab) in the Application Navigator collapses or expands all application menus.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: true },
+      { id: "c", text: "Application", is_correct: false },
+      { id: "d", text: "Funnel", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q111",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What do you call any component that needs to be managed in order to deliver services?",
+    explanation: "A Configuration Item (CI) is any component or asset that needs to be managed in order to deliver an IT service.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "CSDM Items", is_correct: false },
+      { id: "b", text: "CMDB", is_correct: false },
+      { id: "c", text: "Configuration item", is_correct: true },
+      { id: "d", text: "Service Offerings", is_correct: false },
+      { id: "e", text: "Asset", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q119",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A department manager asks an analyst to build some reports. Where do you recommend the analyst start?",
+    explanation: "The Report Designer (Reports > Create New) is the primary starting point for creating reports in ServiceNow.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Report Dashboard > Create New", is_correct: false },
+      { id: "b", text: "Reports > Getting Started", is_correct: false },
+      { id: "c", text: "Performance Analytics > Reports", is_correct: false },
+      { id: "d", text: "Self-Service > Reports", is_correct: false },
+      { id: "e", text: "Reports > Create New", is_correct: true }
+    ]
+  },
+  {
+    id: "p6-q122",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What would you do, on a list, if you wanted to show the records in groups, based on the column category? (Choose two.)",
+    explanation: "Grouping can be done via the List Context Menu or by using the Column Title context menu.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "On list Context Menu, select Group By > Category", is_correct: true },
+      { id: "b", text: "On the Filter Menu, select Group By > Category", is_correct: false },
+      { id: "c", text: "Click Group On icon, select Category", is_correct: false },
+      { id: "d", text: "On Navigator Filter, type tablename.group.category and press enter", is_correct: false },
+      { id: "e", text: "On the Category column title, click Context menu > Group By Category", is_correct: true }
+    ]
+  },
+  {
+    id: "p6-q136",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which module would you use to customize your instances banner image, text and colors?",
+    explanation: "Basic Configuration UI16 is the standard module for primary instance branding and styling.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "System UI > UI Pages > Branding", is_correct: false },
+      { id: "b", text: "Service Portal > Portals > Branding", is_correct: false },
+      { id: "c", text: "System Properties > Basic Configuration UI16", is_correct: true },
+      { id: "d", text: "System Properties > Branding", is_correct: false },
+      { id: "e", text: "Homepage Admin > Pages > Branding", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q140",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "When a user reports that they are not able to see modules on the application navigator, what can you do, to see what modules are visible to them?",
+    explanation: "Impersonation allows administrators to view the instance exactly as the user does for troubleshooting visibility.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Look up their password, so you can login with their account", is_correct: false },
+      { id: "b", text: "Initiate a Connect Chat session", is_correct: false },
+      { id: "c", text: "Install the Bomgar plug-in", is_correct: false },
+      { id: "d", text: "Impersonate the user", is_correct: true },
+      { id: "e", text: "Launch a NowChat window", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q142",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "While showing a customer their incident form, they ask to change the Priority values to display their internal terminology P1, P2, P3, P4. They want it to be consistent across all Tasks. How would you do that? Right click on Priority and select what?",
+    explanation: "The 'Show Choices' or 'Configure Choices' option allows editing the values and labels for choice fields.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Configure Lists", is_correct: false },
+      { id: "b", text: "Show Options", is_correct: false },
+      { id: "c", text: "Configure Task", is_correct: false },
+      { id: "d", text: "Show Choices", is_correct: true },
+      { id: "e", text: "Show Choice List", is_correct: false },
+      { id: "f", text: "Configure Options", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q150",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a Form header, what is the three bar icon called?",
+    explanation: "The three horizontal bars represent the Additional Actions or Context Menu for the form.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Pancake icon", is_correct: false },
+      { id: "b", text: "Additional Actions or Context Menu", is_correct: true },
+      { id: "c", text: "Hamburger icon", is_correct: false },
+      { id: "d", text: "Cake icon", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q181",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What attributes can you manage, using System Properties > Basic Configuration UI16? (Choose five.)",
+    explanation: "Basic Configuration UI16 manages the banner image, tab title, base theme, font style, and header color.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Browser tab title", is_correct: true },
+      { id: "b", text: "Module text color", is_correct: false },
+      { id: "c", text: "Preferred browser", is_correct: false },
+      { id: "d", text: "Base theme", is_correct: true },
+      { id: "e", text: "Font style", is_correct: true },
+      { id: "f", text: "Animation style", is_correct: false },
+      { id: "g", text: "Header background color", is_correct: true },
+      { id: "h", text: "Banner Image", is_correct: true }
+    ]
+  },
+  {
+    id: "p6-q203",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a filter condition, there is an element, which is based on the table, the user access rights, and columns on the table. What is this element called?",
+    explanation: "The 'Field' is the specific attribute within a table that the filter logic evaluates.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Label", is_correct: false },
+      { id: "b", text: "Column", is_correct: false },
+      { id: "c", text: "Data Element", is_correct: false },
+      { id: "d", text: "Field", is_correct: true },
+      { id: "e", text: "Attribute", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q214",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "The Report Designer contains different sections for configuring your report. Which section is used to specify the name of the report, and the table or data source for the report?",
+    explanation: "The 'Data' or 'Properties' section (depending on UI version/context provided) defines the report name and source table.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Type", is_correct: false },
+      { id: "b", text: "Properties", is_correct: true },
+      { id: "c", text: "Configure", is_correct: false },
+      { id: "d", text: "Sources", is_correct: false },
+      { id: "e", text: "Data", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q215",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What icon do you use to change the icon and color on a Favorite?",
+    explanation: "In the Navigator, the Pencil icon on the Favorites tab allows editing labels, icons, and colors.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Clock", is_correct: false },
+      { id: "b", text: "Pencil", is_correct: true },
+      { id: "c", text: "Triangle", is_correct: false },
+      { id: "d", text: "Star", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q243",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On what part of the ServiceNow instance, would you find the option to access applications, like Incident Management?",
+    explanation: "The Application Navigator is the main menu for accessing applications and modules.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Application Navigator", is_correct: true },
+      { id: "b", text: "Service Desk Homepage", is_correct: false },
+      { id: "c", text: "Self Service Module", is_correct: false },
+      { id: "d", text: "Favorites", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q254",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which banner icon do you use to change your personal system settings, like your instance color scheme?",
+    explanation: "The Gear icon (Settings) in the banner frame allows individual users to change their preferences.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Magnifier", is_correct: false },
+      { id: "b", text: "Question mark", is_correct: false },
+      { id: "c", text: "Gear", is_correct: true },
+      { id: "d", text: "Chat bubbles", is_correct: false }
+    ]
+  },
+  {
+    id: "p6-q287",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A colleague wants to rearrange the columns on their My Work List. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+    explanation: "Clicking 'Personalize List' (often via the Gear icon) opens the column slushbucket for individual users.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Right click on any column header, Context Menu > Configure > List Layout", is_correct: false },
+      { id: "b", text: "Click List Context Menu > Configure > List Layout", is_correct: false },
+      { id: "c", text: "Click List Context Menu > Personalize List", is_correct: true },
+      { id: "d", text: "Click Personalize List", is_correct: false }
+    ]
+  },
+
+  // --- PART 7 (Questions 91 - 117 — FINAL) ---
+  {
+    id: "p7-q300",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What do you click when you have made modifications to your report, and you want to see the results without saving?",
+    explanation: "The Preview button allows you to see the current report state without committing changes to the record.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Preview", is_correct: true },
+      { id: "b", text: "Test", is_correct: false },
+      { id: "c", text: "Run", is_correct: false },
+      { id: "d", text: "Try It", is_correct: false },
+      { id: "e", text: "Execute", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q303",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What module do you use to access the reports that are available to you?",
+    explanation: "The Reports > View / Run module is the central place to see and access all reports you have permissions for.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Self-Service > My Reports", is_correct: false },
+      { id: "b", text: "Self-Service > My Dashboards", is_correct: false },
+      { id: "c", text: "Reports > View / Run", is_correct: true },
+      { id: "d", text: "Reports > Homepage", is_correct: false },
+      { id: "e", text: "Reports > Overview", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q306",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "The customer has asked that you change the default layout of the Task list. They would like these columns, in this order: • Number • Task Type • Parent • Short Description • Assignment Group • Assignee • Updated. After navigating to the list, where would you click, to meet this requirement?",
+    explanation: "To change the layout for all users, an administrator must use the 'Configure > List Layout' option from the context menu.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Click List Context Menu > Personalize List", is_correct: false },
+      { id: "b", text: "Click List Context Menu > Configure > Columns", is_correct: false },
+      { id: "c", text: "Right click List Gear icon > Configure > Columns", is_correct: false },
+      { id: "d", text: "Right click on any column header, Context Menu > Configure > List Layout", is_correct: true }
+    ]
+  },
+  {
+    id: "p7-q308",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What icon do you use to change the label on a Favorite?",
+    explanation: "The Pencil icon in the Favorites tab of the Navigator is used to edit labels, icons, and colors.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: false },
+      { id: "c", text: "Triangle", is_correct: false },
+      { id: "d", text: "Pencil", is_correct: true }
+    ]
+  },
+  {
+    id: "p7-q309",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "When moving a homepage or dashboard between instances, what must you remember?",
+    explanation: "Homepages and dashboards are not automatically captured in update sets and must be manually added.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Download both as PDF and XML files", is_correct: false },
+      { id: "b", text: "They cannot be moved via update set", is_correct: false },
+      { id: "c", text: "The Platform will automatically add them to the update set", is_correct: false },
+      { id: "d", text: "Manually add them to the update set", is_correct: true },
+      { id: "e", text: "They are automatically added to the update set", is_correct: false },
+      { id: "f", text: "Create a separate update set for them", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q319",
     domain_id: 1,
     type: QuestionType.MCQ,
     text: "On a form header, what icon would you click to access Template features?",
-    explanation: "The Template bar is toggled via the 'More Options' (three dots) menu in the banner.",
+    explanation: "The Stamp icon in the form header bar is the toggle for the Template Bar.",
     is_active: true,
     choices: [
-      { id: "A", text: "Context Menu", is_correct: false },
-      { id: "B", text: "Paper clip", is_correct: false },
-      { id: "C", text: "More options (...)", is_correct: true },
-      { id: "D", text: "Stamp", is_correct: false }
+      { id: "a", text: "Context Menu", is_correct: false },
+      { id: "b", text: "Paper clip", is_correct: false },
+      { id: "c", text: "More options (...)", is_correct: false },
+      { id: "d", text: "Stamp", is_correct: true }
+    ]
+  },
+  {
+    id: "p7-q281",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "You are editing a new incident record and would like the 'Save' button to be located on the Form header. Which action would need to be taken for that button to appear?",
+    explanation: "Activating advanced UI properties allows for more header buttons, including the standard 'Save' action.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Context Menu > Form Design > add the “Save” button.", is_correct: false },
+      { id: "b", text: "All > System Properties > UI Properties > Turn on the “glide.ui.advanced” property.", is_correct: true },
+      { id: "c", text: "All > System Properties > UI Properties > Turn on the “Save” button.", is_correct: false },
+      { id: "d", text: "Context Menu > Form Layout > add the “Save” button", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q287",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A colleague wants to rearrange the columns on their My Work List. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+    explanation: "Users personalize their own list view using 'Personalize List' from the context menu.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Right click on any column header, Context Menu > Configure > List Layout", is_correct: false },
+      { id: "b", text: "Click List Context Menu > Configure > List Layout", is_correct: false },
+      { id: "c", text: "Click List Context Menu > Personalize List", is_correct: true },
+      { id: "d", text: "Click Personalize List", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q225",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "From a related list, what would a user click to personalize the layout of the columns?",
+    explanation: "The Gear icon in a related list header provides column personalization for that specific user.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Gear", is_correct: true },
+      { id: "b", text: "Context Menu", is_correct: false },
+      { id: "c", text: "Pencil", is_correct: false },
+      { id: "d", text: "Magnifier", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q203",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a filter condition, there is an element, which is based on the table, the user access rights, and columns on the table. What is this element called?",
+    explanation: "The Field element represents the actual database column selected for filtering.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Label", is_correct: false },
+      { id: "b", text: "Column", is_correct: false },
+      { id: "c", text: "Data Element", is_correct: false },
+      { id: "d", text: "Field", is_correct: true },
+      { id: "e", text: "Attribute", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q214",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "The Report Designer contains different sections for configuring your report. Which section is used to specify the name of the report, and the table or data source for the report?",
+    explanation: "The Properties section (often within the 'Data' phase) is where the core report attributes are defined.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Type", is_correct: false },
+      { id: "b", text: "Properties", is_correct: true },
+      { id: "c", text: "Configure", is_correct: false },
+      { id: "d", text: "Sources", is_correct: false },
+      { id: "e", text: "Data", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q212",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "The Report Designer contains different sections for configuring your report. Which section is used to specify grouping and calculations to be run against the data?",
+    explanation: "The 'Group by' or 'Configure' tab allows you to set aggregation and grouping logic.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Style", is_correct: false },
+      { id: "b", text: "Group by", is_correct: true },
+      { id: "c", text: "Configure", is_correct: false },
+      { id: "d", text: "Format", is_correct: false },
+      { id: "e", text: "Data", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q213",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "The Report Designer contains different sections for configuring your report. Which section is used to adjust the look of your report, including colors, titles and legend layout?",
+    explanation: "The Style tab is dedicated to the visual presentation aspects of the report.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Layout", is_correct: false },
+      { id: "b", text: "Format", is_correct: false },
+      { id: "c", text: "Configure", is_correct: false },
+      { id: "d", text: "Style", is_correct: true }
+    ]
+  },
+  {
+    id: "p7-q181",
+    domain_id: 1,
+    type: QuestionType.MULTI_SELECT,
+    text: "What attributes can you manage, using System Properties > Basic Configuration UI16? (Choose five.)",
+    explanation: "This module handles Banner Image, Tab Title, Base Theme, Font Style, and Header Background.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Browser tab title", is_correct: true },
+      { id: "b", text: "Module text color", is_correct: false },
+      { id: "c", text: "Preferred browser", is_correct: false },
+      { id: "d", text: "Base theme", is_correct: true },
+      { id: "e", text: "Font style", is_correct: true },
+      { id: "f", text: "Animation style", is_correct: false },
+      { id: "g", text: "Header background color", is_correct: true },
+      { id: "h", text: "Banner Image", is_correct: true }
+    ]
+  },
+  {
+    id: "p7-q254",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which banner icon do you use to change your personal system settings, like your instance color scheme?",
+    explanation: "The Gear icon in the Banner Frame opens the System Settings menu.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Magnifier", is_correct: false },
+      { id: "b", text: "Question mark", is_correct: false },
+      { id: "c", text: "Gear", is_correct: true },
+      { id: "d", text: "Chat bubbles", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q243",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On what part of the ServiceNow instance, would you find the option to access applications, like Incident Management?",
+    explanation: "The Application Navigator is the standard way to find and open application modules.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Application Navigator", is_correct: true },
+      { id: "b", text: "Service Desk Homepage", is_correct: false },
+      { id: "c", text: "Self Service Module", is_correct: false },
+      { id: "d", text: "Favorites", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q98_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What icon do you use to change the icon and color on a Favorite?",
+    explanation: "The Pencil icon in the favorites navigator tab allows editing these properties.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Clock", is_correct: false },
+      { id: "b", text: "Pencil", is_correct: true },
+      { id: "c", text: "Triangle", is_correct: false },
+      { id: "d", text: "Star", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q110_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which icon would you double click, to expand and collapse the list of all Applications and Modules?",
+    explanation: "Double-clicking the Clock (History) icon is a navigation toggle for application menus.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Star", is_correct: false },
+      { id: "b", text: "Clock", is_correct: true },
+      { id: "c", text: "Application", is_correct: false },
+      { id: "d", text: "Funnel", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q136_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "Which module would you use to customize your instances banner image, text and colors?",
+    explanation: "Basic Configuration UI16 is used for high-level instance branding.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "System UI > UI Pages > Branding", is_correct: false },
+      { id: "b", text: "Service Portal > Portals > Branding", is_correct: false },
+      { id: "c", text: "System Properties > Basic Configuration UI16", is_correct: true },
+      { id: "d", text: "System Properties > Branding", is_correct: false },
+      { id: "e", text: "Homepage Admin > Pages > Branding", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q142_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "While showing a customer their incident form, they ask to change the Priority values to display their internal terminology P1, P2, P3, P4. They want it to be consistent across all Tasks. How would you do that? Right click on Priority and select what?",
+    explanation: "The 'Show Choices' menu option allows editing choice labels and values.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Configure Lists", is_correct: false },
+      { id: "b", text: "Show Options", is_correct: false },
+      { id: "c", text: "Configure Task", is_correct: false },
+      { id: "d", text: "Show Choices", is_correct: true },
+      { id: "e", text: "Show Choice List", is_correct: false },
+      { id: "f", text: "Configure Options", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q150_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a Form header, what is the three bar icon called?",
+    explanation: "This is the Context Menu icon for record-level actions.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Pancake icon", is_correct: false },
+      { id: "b", text: "Additional Actions or Context Menu", is_correct: true },
+      { id: "c", text: "Hamburger icon", is_correct: false },
+      { id: "d", text: "Cake icon", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q287_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "A colleague wants to rearrange the columns on their My Work List. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+    explanation: "Users personalize their views via 'Personalize List'.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Right click on any column header, Context Menu > Configure > List Layout", is_correct: false },
+      { id: "b", text: "Click List Context Menu > Configure > List Layout", is_correct: false },
+      { id: "c", text: "Click List Context Menu > Personalize List", is_correct: true },
+      { id: "d", text: "Click Personalize List", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q319_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "On a form header, what icon would you click to access Template features?",
+    explanation: "The Stamp icon toggles the template selection bar.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Context Menu", is_correct: false },
+      { id: "b", text: "Paper clip", is_correct: false },
+      { id: "c", text: "More options (...)", is_correct: false },
+      { id: "d", text: "Stamp", is_correct: true }
+    ]
+  },
+  {
+    id: "p7-q294_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What action will allow you to personalize layouts of columns in a list?",
+    explanation: "The Gear icon in the list header opens personalization options.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Context Menu > View > Personalize", is_correct: false },
+      { id: "b", text: "Click Gear Icon > Personalize window options > Select the appropriate columns", is_correct: true },
+      { id: "c", text: "Select the column to be personalized and right at the header > Choose the options to personalize", is_correct: false },
+      { id: "d", text: "Select the column to be personalized > Click Edit icon (Pencil) > Choose the options to personalize", is_correct: false }
+    ]
+  },
+  {
+    id: "p7-q300_v2",
+    domain_id: 1,
+    type: QuestionType.MCQ,
+    text: "What do you click when you have made modifications to your report, and you want to see the results without saving?",
+    explanation: "Preview allows immediate visual feedback of report changes.",
+    is_active: true,
+    choices: [
+      { id: "a", text: "Preview", is_correct: true },
+      { id: "b", text: "Test", is_correct: false },
+      { id: "c", text: "Run", is_correct: false },
+      { id: "d", text: "Try It", is_correct: false },
+      { id: "e", text: "Execute", is_correct: false }
     ]
   }
 ];

@@ -38,11 +38,16 @@
         .rotate-y-180 { transform: rotateY(180deg); }
         .transform-style-3d { transform-style: preserve-3d; }
         
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        /* Desktop Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; border: 3px solid #F1F5F9; }
         ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+        /* Container scale for extra large screens */
+        @media (min-width: 1536px) {
+            .container { max-width: 1400px; }
+        }
     </style>
 <script type="importmap">
 {
@@ -59,7 +64,6 @@
 </head>
 <body class="selection:bg-teal-100 min-h-screen flex flex-col">
     <div id="root" class="flex-grow flex flex-col"></div>
-    <!-- Entry point for the application -->
     <script type="module" src="index.tsx"></script>
 </body>
 </html>

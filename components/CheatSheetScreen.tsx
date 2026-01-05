@@ -1,350 +1,329 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Language, translations } from '../translations';
+
+interface BadgeProps {
+  /* children is made optional to satisfy TypeScript's JSX requirements in some environments where the children prop isn't automatically inferred from nesting */
+  children?: React.ReactNode;
+  color?: string;
+}
+
+const Badge = ({ children, color = "teal" }: BadgeProps) => {
+  const colorMap: Record<string, string> = {
+    teal: "bg-teal-50 text-teal-600 border-teal-100",
+    indigo: "bg-indigo-50 text-indigo-600 border-indigo-100",
+    amber: "bg-amber-50 text-amber-600 border-amber-100",
+    rose: "bg-rose-50 text-rose-600 border-rose-100",
+    purple: "bg-purple-50 text-purple-600 border-purple-100",
+    slate: "bg-slate-50 text-slate-600 border-slate-100"
+  };
+
+  const classes = colorMap[color] || colorMap.teal;
+
+  return (
+    <span className={`px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-tighter border ${classes}`}>
+      {children}
+    </span>
+  );
+};
 
 interface CheatSheetScreenProps {
   onBack: () => void;
   lang: Language;
+  initialDomainId?: number;
 }
 
-const CheatSheetScreen: React.FC<CheatSheetScreenProps> = ({ onBack, lang }) => {
+const CheatSheetScreen: React.FC<CheatSheetScreenProps> = ({ onBack, lang, initialDomainId }) => {
   const t = translations[lang];
-  const [activeTab, setActiveTab] = useState(0);
+  const [selectedDomain, setSelectedDomain] = useState<number | null>(initialDomainId || null);
+  const isAr = lang === 'ar';
 
-  const sections = [
-    {
-      title: "User Interface & Navigation",
-      titleAr: "الواجهة والملاحة",
-      weight: "20%",
-      pages: [
-        {
-          head: "ServiceNow Overview",
-          content: "ServiceNow is a cloud-based platform designed to streamline IT service management (ITSM) and other enterprise workflows. It offers a comprehensive suite of tools to automate tasks, manage incidents, requests, changes, approvals, and knowledge bases.",
-          subItems: [
-            { label: "Incident Management", text: "Tracks and resolves reported issues experienced by users." },
-            { label: "Request Management", text: "Fulfills user requests for access, services, or information." },
-            { label: "Change Management", text: "Enables a controlled process for implementing changes to the IT infrastructure." },
-            { label: "Problem Management", text: "Identifies the root cause of recurring incidents to prevent future occurrences." },
-            { label: "Knowledge Base", text: "Provides a central repository for documented solutions and answers to frequently asked questions." },
-            { label: "Workflow Automation", text: "Automates repetitive tasks to improve efficiency." },
-            { label: "Reporting and Analytics", text: "Offers insights into IT operations and helps identify areas for improvement." }
-          ]
-        },
-        {
-          head: "Lists and Filters",
-          content: "Fundamental functionalities that help you navigate and manage data efficiently.",
-          subItems: [
-            { label: "Lists", text: "Display information in a tabular format with rows and columns. Each record (row) typically contains details about the specific item." },
-            { label: "Filters", text: "Allow you to refine the information displayed in a list. Criteria include Field, Operator, and Value." },
-            { label: "Use Cases", text: "Search for specific records, view records meeting certain criteria, analyze trends, and identify patterns." }
-          ]
-        },
-        {
-          head: "Forms and Templates",
-          content: "Forms are the building blocks for user interaction, allowing users to submit requests, view data, and update records.",
-          subItems: [
-            { label: "Fields", text: "Capture user input (text, date pickers, dropdown menus, etc.)." },
-            { label: "Sections", text: "Organize related fields for clarity." },
-            { label: "Related Lists", text: "Display associated records for quick reference." },
-            { label: "Formatters", text: "Control how field data is displayed (e.g., progress bar)." },
-            { label: "Views", text: "Define how specific user groups see the form (different fields, layouts)." },
-            { label: "Templates", text: "Pre-built forms that serve as a starting point to ensure consistency and save time." }
-          ]
-        },
-        {
-          head: "Branding",
-          content: "Customize the look and feel to align with organization identity.",
-          subItems: [
-            { label: "Components", text: "Company logo, Colors (primary/secondary), Navigation menus, Banners and messages." }
-          ]
-        }
-      ]
-    },
-    {
-      title: "Collaboration",
-      titleAr: "التعاون",
-      weight: "20%",
-      pages: [
-        {
-          head: "User Administration",
-          content: "Admins are responsible for creating, managing, and securing user accounts.",
-          subItems: [
-            { label: "Creation & Management", text: "Adding individual users, setting up groups for access control, and managing user profiles (contact info, roles, permissions)." },
-            { label: "Auth & Authorization", text: "Configuring authentication (Username/Password, Active Directory) and defining authorization rules." },
-            { label: "Security Best Practices", text: "Enforcing password policies, enabling 2FA, and managing user lifecycles (activation, deactivation, deletion)." }
-          ]
-        },
-        {
-          head: "Task Management",
-          content: "Tasks are building blocks used to track activities and progress.",
-          subItems: [
-            { label: "Create & Manage", text: "Creating tasks manually or through workflows, assigning them to users/groups, setting due dates and priorities." },
-            { label: "Routing & Automation", text: "Leveraging automation rules to automatically route tasks based on pre-defined criteria." },
-            { label: "Tracking & Reporting", text: "Monitoring progress, identifying bottlenecks, and generating reports to analyze completion rates." }
-          ]
-        },
-        {
-          head: "Notifications",
-          content: "Alerts sent to users via email or in-platform messages about specific events.",
-          subItems: [
-            { label: "Configuring Recipients", text: "Who receives the notification (individuals, groups, roles)." },
-            { label: "Configuring Conditions", text: "When a notification is triggered (e.g., on incident creation, assignment change)." },
-            { label: "Configuring Content", text: "Information included (e.g., incident details, task description)." },
-            { label: "Delivery Channels", text: "Email, pop-up message, SMS (may require plugins)." },
-            { label: "Management", text: "Users manage preferences in settings; Admins create templates and troubleshoot delivery issues." }
-          ]
-        },
-        {
-          head: "Reporting",
-          content: "Pre-defined queries that present data in user-friendly formats.",
-          subItems: [
-            { label: "List Reports", text: "Display data in a tabular format with sorting/filtering." },
-            { label: "Pivot Reports", text: "Allow for data aggregation and manipulation to identify trends." },
-            { label: "Graphical Reports", text: "Charts and graphs for easier comprehension." },
-            { label: "Report Builder", text: "Drag-and-drop interface for creating custom reports; select data sources, define filters, and choose presentation." },
-            { label: "Scheduled Reports", text: "Automated reports sent at specific intervals via email." }
-          ]
-        }
-      ]
-    },
-    {
-      title: "Database Administration",
-      titleAr: "إدارة قواعد البيانات",
-      weight: "30%",
-      pages: [
-        {
-          head: "Data Schema",
-          content: "A blueprint that defines how data is organized within the database. Specifies tables, fields, data types, and relationships.",
-          subItems: [
-            { label: "Importance", text: "Allows configuring applications, managing data integrity, building reports/dashboards, and automating workflows." },
-            { label: "Tables", text: "Fundamental structures that store data (e.g., 'incident' or 'user')." },
-            { label: "Fields", text: "Individual columns within a table holding specific data points." },
-            { label: "Relationships", text: "Connections between tables: One-to-One, One-to-Many, Many-to-Many." },
-            { label: "Common Tables", text: "Incident, Change Request, Problem, CMDB_CI, User." }
-          ]
-        },
-        {
-          head: "CMDB",
-          content: "Configuration Management Database - a central repository for CI information.",
-          subItems: [
-            { label: "Data Model", text: "Pre-defined model for CIs (attributes like serial number, vendor, etc.). Can be extended with custom fields." },
-            { label: "Discovery & Reconciliation", text: "Automatically discover CIs and perform reconciliation to remove duplicates or inconsistencies." },
-            { label: "Relationships", text: "Linked CIs representing real-world dependencies (e.g., server linked to applications)." },
-            { label: "Impact Analysis", text: "Identifies potentially affected CIs during incidents to prioritize resolution." }
-          ]
-        },
-        {
-          head: "Access Control",
-          content: "Roles and ACLs define user permissions for applications, forms, fields, and data.",
-          subItems: [
-            { label: "Roles", text: "Define user permissions." },
-            { label: "ACLs", text: "Specify which roles can access specific components." },
-            { label: "Best Practices", text: "Follow the Principle of Least Privilege (granting minimum access needed)." }
-          ]
-        },
-        {
-          head: "Import Sets",
-          content: "Tool for efficient bulk upload of data from CSV/Excel into ServiceNow tables.",
-          subItems: [
-            { label: "1. Data Preparation", text: "Ensure data in spreadsheet matches target table format." },
-            { label: "2. Map File Creation", text: "Translate spreadsheet data into ServiceNow field format." },
-            { label: "3. Import Set Creation", text: "Specify source file and target table." },
-            { label: "4. Transform & Import", text: "Manipulate data (cleaning, defaults, calculations) before import." },
-            { label: "5. Review & Commit", text: "Preview data mapping and identify errors before final commit." },
-            { label: "Coalesce", text: "Before transform, makes a field the unique key to prevent duplicates." }
-          ]
-        }
-      ]
-    },
-    {
-      title: "Service Automation",
-      titleAr: "أتمتة الخدمات",
-      weight: "20%",
-      pages: [
-        {
-          head: "Knowledge Management (KM)",
-          content: "Empowers users to find solutions independently through articles and FAQs.",
-          subItems: [
-            { label: "Article Creation", text: "Creating, editing, and organizing articles." },
-            { label: "Categorization", text: "Classifying with categories and tags for efficient searching." },
-            { label: "Version Control", text: "Maintaining versions and implementing approval workflows." },
-            { label: "Search & Analytics", text: "Enabling keyword filters and tracking user behavior for improvement." },
-            { label: "Support", text: "KM deflects repetitive inquiries so IT teams can focus on complex issues." }
-          ]
-        },
-        {
-          head: "Service Catalog",
-          content: "The foundation for self-service. Acts as a menu of standardized IT services.",
-          subItems: [
-            { label: "Service", text: "A defined offering like 'Password Reset'." },
-            { label: "Catalog Items", text: "Specific variations (e.g., temporary vs permanent)." },
-            { label: "Categories", text: "Ways of organizing services for browsing (Hardware, Software)." },
-            { label: "Fields", text: "Capture user info during request (department, model #)." },
-            { label: "Configuration", text: "Define workflows, approvals, and fulfillment activities." }
-          ]
-        },
-        {
-          head: "Workflows / Flow Designer",
-          content: "Automated processes that streamline tasks. Flow Designer is the visual tool used to build them.",
-          subItems: [
-            { label: "Building Flows", text: "Using pre-built actions, conditions, and loops to automate service requests." },
-            { label: "Flow Stages", text: "Represent steps like approval, fulfillment, delivery, and completion." },
-            { label: "Conditions", text: "Define paths based on data (e.g., if priority is high, escalate)." },
-            { label: "Actions", text: "Specific tasks: send email, assign task, update field." },
-            { label: "Variables", text: "Store and manipulate data within the workflow." },
-            { label: "Benefits", text: "Improved efficiency, increased accuracy (reduced manual errors), faster resolution, and standardized delivery." }
-          ]
-        }
-      ]
-    },
-    {
-      title: "Introduction to Development",
-      titleAr: "مقدمة في التطوير",
-      weight: "10%",
-      pages: [
-        {
-          head: "Scripting",
-          content: "ServiceNow uses JavaScript (specifically ServiceNow JavaScript) to automate tasks and extend functionality.",
-          subItems: [
-            { label: "Business Rules", text: "Run automatically on server-side when criteria are met (modify values, display messages, trigger flows)." },
-            { label: "Client Scripts", text: "Execute on client-side (browser) in response to user interaction (button click, field change)." },
-            { label: "UI Actions", text: "Triggered by UI elements like custom buttons or links." },
-            { label: "Email Scripts", text: "Used to customize email notifications." },
-            { label: "Scope", text: "Admins should identify appropriate script types for scenarios and troubleshoot common errors." }
-          ]
-        },
-        {
-          head: "Migration & Integration",
-          content: "Moving data/workflows from legacy systems to ServiceNow and connecting with external platforms.",
-          subItems: [
-            { label: "Migration Types", text: "Full migration, Partial migration, and Staged migration (phased approach)." },
-            { label: "Migration Toolkit", text: "Built-in tool helping automate data migration." },
-            { label: "Integration Methods", text: "REST APIs (communication between systems), Web Services (protocol for data exchange), Plugins (pre-built extensions)." },
-            { label: "Update Sets", text: "Group of customizations packaged to move from one instance to another (tracks sys_update_xml)." }
-          ]
-        },
-        {
-          head: "UI Builder",
-          content: "Visual tool for customizing user interfaces.",
-          subItems: [
-            { label: "Functionality", text: "Drag and drop pre-built UI elements to create forms, portals, and dashboards." },
-            { label: "Concepts", text: "Creating/editing forms, configuring fields, and applying styles." }
-          ]
-        }
-      ]
-    }
+  const domains = [
+    { id: 1, title: isAr ? "الواجهة والتكوين" : "UI & Configuration", icon: "📱", color: "teal", desc: "Banner, Navigator, Lists & Forms" },
+    { id: 2, title: isAr ? "التعاون والتواصل" : "Collaboration", icon: "👥", color: "indigo", desc: "Branding, Notifications & Chat" },
+    { id: 3, title: isAr ? "قواعد البيانات" : "Database Admin", icon: "🗄️", color: "amber", desc: "Tables, ACLs & Import Sets" },
+    { id: 4, title: isAr ? "أتمتة الخدمات" : "Service Automation", icon: "⚡", color: "rose", desc: "Catalog, Flows & SLAs" },
+    { id: 5, title: isAr ? "تطوير التطبيقات" : "App Development", icon: "🛠️", color: "purple", desc: "Scripts, UI Policies & ATF" }
   ];
 
+  const handleSelect = (id: number) => {
+    setSelectedDomain(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4 animate-fadeIn">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-        <div>
-          <h2 className="text-3xl font-black text-slate-900">
-            {lang === 'ar' ? 'ServiceNow CSA ملخص شامل' : 'ServiceNow CSA Master Cheat Sheet'}
-          </h2>
-          <p className="text-slate-500 mt-1">
-            {lang === 'ar' ? 'كامل المحتوى التقني من ملف المراجعة الرسمي' : 'Full technical content from the official master reference'}
-          </p>
-        </div>
-        <button 
-          onClick={onBack}
-          className="px-5 py-2 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl font-bold shadow-sm transition-all flex items-center gap-2"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${lang === 'ar' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          {t.back}
-        </button>
-      </div>
-
-      {/* Tabs Navigation */}
-      <div className="flex overflow-x-auto pb-4 gap-2 mb-8 no-scrollbar scroll-smooth">
-        {sections.map((section, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveTab(idx)}
-            className={`whitespace-nowrap px-6 py-3.5 rounded-2xl font-bold text-sm transition-all border shadow-sm ${activeTab === idx ? 'bg-[#293e40] text-white border-[#293e40] scale-105 z-10' : 'bg-white text-slate-500 border-slate-200 hover:border-indigo-300'}`}
-          >
-            <span className="opacity-60 mr-2 text-xs">{section.weight}</span>
-            {lang === 'ar' ? section.titleAr : section.title}
-          </button>
-        ))}
-      </div>
-
-      {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Domain Info Sidebar */}
-        <div className="lg:col-span-1">
-          <div className="bg-indigo-900 text-white p-8 rounded-[2rem] shadow-xl sticky top-24 overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
-            <div className="relative z-10">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] opacity-50 mb-2">Certification Domain</div>
-              <h3 className="text-2xl font-black mb-6 leading-tight">
-                {lang === 'ar' ? sections[activeTab].titleAr : sections[activeTab].title}
-              </h3>
-              <div className="bg-white/10 rounded-2xl p-4 mb-6">
-                 <div className="text-4xl font-black">{sections[activeTab].weight}</div>
-                 <div className="text-[10px] uppercase font-bold opacity-60">Exam Distribution</div>
-              </div>
-              <div className="space-y-4 text-sm text-indigo-100 leading-relaxed font-medium">
-                 <p>{lang === 'ar' ? 'هذا القسم يغطي كافة المهارات والمفاهيم المطلوبة لهذا المجال في اختبار CSA الرسمي.' : 'This section contains the comprehensive list of skills and concepts required for this domain in the CSA exam.'}</p>
-              </div>
+    <div className="w-full max-w-6xl mx-auto py-6 md:py-10 animate-fadeIn">
+      
+      {/* 1. SELECTION VIEW: Displayed when no domain is selected */}
+      {!selectedDomain ? (
+        <div className="space-y-12 animate-fadeIn">
+          <div className="flex items-center justify-between">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-black text-slate-800">{isAr ? 'دليل المعرفة الشامل' : 'Knowledge Hub'}</h2>
+              <p className="text-slate-500 font-medium">{isAr ? 'اختر مجالاً للبدء في مراجعة المفاهيم الأساسية' : 'Select a domain to begin reviewing core concepts.'}</p>
             </div>
+            <button onClick={onBack} className="text-slate-400 hover:text-teal-600 font-black uppercase text-xs tracking-widest transition-all flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${isAr ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              {t.back}
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {domains.map((d) => (
+              <button
+                key={d.id}
+                onClick={() => handleSelect(d.id)}
+                className="group p-8 bg-white border border-slate-200 rounded-[2rem] text-start hover:border-teal-500 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden flex flex-col gap-6"
+              >
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl transition-transform group-hover:scale-110 group-hover:rotate-6 ${
+                  d.color === 'teal' ? 'bg-teal-50 text-teal-600' :
+                  d.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                  d.color === 'amber' ? 'bg-amber-50 text-amber-600' :
+                  d.color === 'rose' ? 'bg-rose-50 text-rose-600' :
+                  'bg-purple-50 text-purple-600'
+                }`}>
+                  {d.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-800 mb-1">{d.title}</h3>
+                  <p className="text-sm text-slate-400 font-medium leading-relaxed">{d.desc}</p>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-[10px] font-black text-teal-600 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  {isAr ? 'عرض التفاصيل' : 'View Details'}
+                  <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 ${isAr ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
+      ) : (
+        
+        /* 2. CONTENT VIEW: Full screen content after selection */
+        <div className="animate-slideUp space-y-8">
+          <div className="flex items-center justify-between bg-white/50 backdrop-blur-sm p-4 rounded-2xl border border-slate-100 sticky top-20 z-50">
+            <button onClick={() => setSelectedDomain(null)} className="flex items-center gap-2 text-teal-600 hover:text-teal-700 font-black uppercase text-[10px] tracking-widest transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 ${isAr ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              {isAr ? 'العودة للمجالات' : 'Back to Domains'}
+            </button>
+            <div className="flex items-center gap-3">
+               <span className="text-xl">{domains.find(d => d.id === selectedDomain)?.icon}</span>
+               <h4 className="font-black text-slate-800 text-sm uppercase tracking-tight">{domains.find(d => d.id === selectedDomain)?.title}</h4>
+            </div>
+          </div>
 
-        {/* Detailed Pages Content */}
-        <div className="lg:col-span-3 space-y-8">
-          {sections[activeTab].pages.map((page, pIdx) => (
-            <div key={pIdx} className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1.5 h-8 bg-[#30B6AF] rounded-full"></div>
-                <h4 className="text-2xl font-black text-slate-900">{page.head}</h4>
-              </div>
+          <main className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden">
+            <div className="p-8 md:p-16 space-y-12" dir="ltr">
               
-              {page.content && (
-                <p className="text-slate-600 mb-8 leading-relaxed text-lg italic">
-                  {page.content}
-                </p>
+              {/* Domain 1 Content */}
+              {selectedDomain === 1 && (
+                <div className="animate-fadeIn space-y-10">
+                  <header className="border-b-4 border-teal-500 pb-6">
+                    {/* Fixed: TypeScript error by making children optional in BadgeProps */}
+                    <Badge color="teal">Domain 01</Badge>
+                    <h1 className="text-4xl md:text-5xl font-black text-[#293e40] mt-2">UI & Configuration</h1>
+                  </header>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <section className="bg-slate-50 p-8 rounded-3xl border border-slate-100 space-y-4">
+                        <h3 className="text-lg font-black text-teal-600 uppercase tracking-widest">Banner Elements</h3>
+                        <ul className="space-y-3 text-base font-bold text-slate-600">
+                          <li>• Global Search: Platform-wide indexing.</li>
+                          <li>• Impersonate: View as any user (logs record).</li>
+                          <li>• Elevate Roles: Temporary security access.</li>
+                        </ul>
+                     </section>
+                     <section className="bg-[#293e40] p-8 rounded-3xl text-white space-y-4 shadow-xl">
+                        <h3 className="text-lg font-black text-teal-400 uppercase tracking-widest">Application Navigator</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                           <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                              <span className="block text-3xl mb-2">⭐</span>
+                              <h4 className="font-black mb-1">Favorites</h4>
+                              <p className="text-[10px] text-slate-400">Pencil icon edits label/color.</p>
+                           </div>
+                           <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                              <span className="block text-3xl mb-2">🕒</span>
+                              <h4 className="font-black mb-1">History</h4>
+                              <p className="text-[10px] text-slate-400">Records, Lists, Forms (No Pages).</p>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+
+                  <div className="bg-indigo-50 p-10 rounded-[2rem] border-2 border-indigo-100">
+                     <h3 className="text-2xl font-black text-indigo-900 mb-6 text-center">List Customization Matrix</h3>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-emerald-200">
+                           <h4 className="text-sm font-black text-slate-900 uppercase mb-2 flex items-center gap-2">⚙️ Personalize (Mechanic)</h4>
+                           <p className="text-xs text-slate-500">Individual view only. Available to everyone.</p>
+                        </div>
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-200">
+                           <h4 className="text-sm font-black text-slate-900 uppercase mb-2 flex items-center gap-2">🛠️ Configure Layout</h4>
+                           <p className="text-xs text-slate-500">Global default view. Required 'admin' role.</p>
+                        </div>
+                     </div>
+                  </div>
+                </div>
               )}
 
-              <div className="grid grid-cols-1 gap-6">
-                {page.subItems.map((item, iIdx) => (
-                  <div key={iIdx} className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100 group hover:border-indigo-200 transition-colors">
-                    <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                        <span className="text-xs font-black">{iIdx + 1}</span>
-                      </div>
-                      <div className="space-y-1">
-                        <div className="font-black text-slate-800 text-sm uppercase tracking-wide">
-                          {item.label}
-                        </div>
-                        <div className="text-slate-600 leading-relaxed text-base">
-                          {item.text}
-                        </div>
-                      </div>
-                    </div>
+              {/* Domain 2 Content */}
+              {selectedDomain === 2 && (
+                <div className="animate-fadeIn space-y-10">
+                  <header className="border-b-4 border-indigo-500 pb-6">
+                    {/* Fixed: TypeScript error by making children optional in BadgeProps */}
+                    <Badge color="indigo">Domain 02</Badge>
+                    <h1 className="text-4xl md:text-5xl font-black text-[#293e40] mt-2">Collaboration</h1>
+                  </header>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                     <div className="bg-white border-2 border-slate-100 p-8 rounded-3xl shadow-lg">
+                        <h4 className="font-black text-slate-800 mb-3 text-lg uppercase">Branding</h4>
+                        <p className="text-sm text-slate-500 italic"><b>Module:</b> Basic Configuration UI16. Controls Logo, Colors, and Title.</p>
+                     </div>
+                     <div className="bg-teal-50 border border-teal-100 p-8 rounded-3xl shadow-lg">
+                        <h4 className="font-black text-teal-800 mb-3 text-lg uppercase">Connect Chat</h4>
+                        <p className="text-sm text-teal-700 italic">Real-time collaboration sidebar for instant user-to-user messaging.</p>
+                     </div>
+                     <div className="bg-[#293e40] p-8 rounded-3xl shadow-lg text-white">
+                        <h4 className="font-black text-teal-400 mb-3 text-lg uppercase">Notifications</h4>
+                        <ul className="text-xs space-y-3 text-slate-300">
+                          <li><b>Trigger:</b> When record is changed or event occurs.</li>
+                          <li><b>Recipients:</b> Users, Groups, or Field references.</li>
+                          <li><b>Content:</b> The "What" of the message.</li>
+                        </ul>
+                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
+
+              {/* Domain 3 Content */}
+              {selectedDomain === 3 && (
+                <div className="animate-fadeIn space-y-10">
+                  <header className="border-b-4 border-amber-500 pb-6">
+                    {/* Fixed: TypeScript error by making children optional in BadgeProps */}
+                    <Badge color="amber">Domain 03</Badge>
+                    <h1 className="text-4xl md:text-5xl font-black text-[#293e40] mt-2">Database Admin</h1>
+                  </header>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                     <div className="border border-slate-200 p-8 rounded-3xl bg-slate-50">
+                        <h4 className="font-black text-slate-800 mb-4 text-xl">Table Hierarchy</h4>
+                        <div className="space-y-4">
+                           <div className="p-4 bg-white rounded-xl border-l-8 border-slate-400 font-bold text-sm">
+                             Base Table: Extends nothing (Task).
+                           </div>
+                           <div className="p-4 bg-white rounded-xl border-l-8 border-amber-400 font-bold text-sm">
+                             Core Table: Built-in (Incident, User).
+                           </div>
+                           <div className="p-4 bg-white rounded-xl border-l-8 border-teal-400 font-bold text-sm">
+                             Custom Table: Created by User (u_).
+                           </div>
+                        </div>
+                     </div>
+                     <div className="bg-indigo-900 text-white p-8 rounded-3xl flex flex-col justify-center gap-6 shadow-2xl">
+                        <h4 className="font-black text-teal-400 uppercase tracking-widest">Import Set Workflow</h4>
+                        <div className="flex flex-col gap-4 text-sm font-black">
+                           <div className="flex items-center gap-4 bg-white/10 p-4 rounded-xl">
+                              <span className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">1</span>
+                              Load Data to Staging Table
+                           </div>
+                           <div className="flex items-center gap-4 bg-white/10 p-4 rounded-xl">
+                              <span className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">2</span>
+                              Transform Map (Mapping Assist)
+                           </div>
+                           <div className="flex items-center gap-4 bg-teal-500 p-4 rounded-xl text-white">
+                              <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">3</span>
+                              Run Transform to Target Table
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Domain 4 Content */}
+              {selectedDomain === 4 && (
+                <div className="animate-fadeIn space-y-10">
+                  <header className="border-b-4 border-rose-500 pb-6">
+                    {/* Fixed: TypeScript error by making children optional in BadgeProps */}
+                    <Badge color="rose">Domain 04</Badge>
+                    <h1 className="text-4xl md:text-5xl font-black text-[#293e40] mt-2">Service Automation</h1>
+                  </header>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                     <div className="space-y-6">
+                        <h3 className="text-2xl font-black text-rose-600">Catalog Structure</h3>
+                        <div className="grid grid-cols-1 gap-4">
+                           <div className="bg-white p-6 border-2 border-slate-50 rounded-2xl shadow-xl flex items-center gap-4">
+                              <span className="text-4xl">📦</span>
+                              <div className="font-bold">Catalog Items: Base building blocks.</div>
+                           </div>
+                           <div className="bg-white p-6 border-2 border-slate-50 rounded-2xl shadow-xl flex items-center gap-4">
+                              <span className="text-4xl">📋</span>
+                              <div className="font-bold">Record Producers: Create Task records.</div>
+                           </div>
+                           <div className="bg-white p-6 border-2 border-slate-50 rounded-2xl shadow-xl flex items-center gap-4">
+                              <span className="text-4xl">🔗</span>
+                              <div className="font-bold">Order Guides: Multiple items grouped.</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl space-y-6">
+                        <h3 className="text-xl font-black text-teal-400 uppercase tracking-widest">Flow Designer</h3>
+                        <div className="space-y-4 border-l-2 border-white/20 pl-6 text-base font-medium text-slate-300">
+                           <p><b className="text-white">Triggers:</b> When flow starts (Record or Time).</p>
+                           <p><b className="text-white">Actions:</b> What flow does (Approvals, Tasks).</p>
+                           <p><b className="text-white">Data Pills:</b> Values passed between steps.</p>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Domain 5 Content */}
+              {selectedDomain === 5 && (
+                <div className="animate-fadeIn space-y-10">
+                  <header className="border-b-4 border-purple-500 pb-6">
+                    {/* Fixed: TypeScript error by making children optional in BadgeProps */}
+                    <Badge color="purple">Domain 05</Badge>
+                    <h1 className="text-4xl md:text-5xl font-black text-[#293e40] mt-2">App Development</h1>
+                  </header>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg font-bold">
+                     <div className="bg-purple-50 p-10 rounded-[2.5rem] border border-purple-100 shadow-inner">
+                        <h4 className="text-purple-800 mb-4 uppercase text-sm">Client-Side</h4>
+                        <ul className="space-y-3 list-disc pl-5 text-slate-700">
+                           <li>UI Policy: No-code form behavior.</li>
+                           <li>Client Scripts: Browser-side JS.</li>
+                        </ul>
+                     </div>
+                     <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-200 shadow-inner">
+                        <h4 className="text-slate-800 mb-4 uppercase text-sm">Server-Side</h4>
+                        <ul className="space-y-3 list-disc pl-5 text-slate-700">
+                           <li>Business Rules: DB-triggered JS.</li>
+                           <li>Data Policy: Constant server rules.</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div className="text-center py-12 border-2 border-dashed border-slate-200 rounded-[2rem]">
+                     <span className="text-slate-400 font-black uppercase tracking-[0.5em]">Update Sets • ATF • Dictionary Overrides</span>
+                  </div>
+                </div>
+              )}
+
             </div>
-          ))}
+          </main>
+          
+          <div className="flex justify-center pt-8">
+            <button 
+              onClick={() => setSelectedDomain(null)}
+              className="h-16 px-12 bg-slate-800 hover:bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-xl active:scale-95"
+            >
+              {isAr ? 'العودة لاختيار مجال آخر' : 'Back to Domains'}
+            </button>
+          </div>
         </div>
-      </div>
-      
-      {/* Footer Disclaimer */}
-      <div className="mt-16 bg-slate-100 rounded-[2rem] p-10 border border-slate-200 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
-          <div className="text-[#30B6AF] font-black text-xs uppercase tracking-widest">Official Reference Data</div>
-          <p className="text-slate-500 text-sm leading-relaxed">
-            {lang === 'ar' 
-              ? 'تنبيه: كافة المعلومات الواردة في هذا الملخص مأخوذة من المراجع الرسمية لشهادة ServiceNow CSA. يُنصح بمراجعتها بانتظام لترسيخ المفاهيم قبل الانتقال للاختبارات التجريبية.' 
-              : 'Disclaimer: All information in this cheat sheet is sourced from official ServiceNow CSA certification references. It is recommended to review these regularly to solidify concepts before attempting mock exams.'}
-          </p>
-        </div>
-        <div className="absolute top-0 left-0 w-24 h-24 bg-white/40 blur-3xl -ml-12 -mt-12"></div>
-      </div>
+      )}
     </div>
   );
 };
